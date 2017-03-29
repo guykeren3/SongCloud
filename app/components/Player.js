@@ -7,6 +7,7 @@ import React from 'react';
 export default function Player() {
   return (
     <div>
+      <img src="#" alt="thumbnail"/>
       <span>Song Name</span>
       <audio src="#" controls>
         <track kind="captions" src="foo.en.vtt" label="English"/>

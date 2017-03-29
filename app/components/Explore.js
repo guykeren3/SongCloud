@@ -35,9 +35,13 @@ export default function Explore() {
         </ul>
       </div>
 
-      <span>Page 1</span>
-      <button type="button">Previous</button>
-      <button type="button">Next</button>
+      <div>
+        <span>Page 1</span>
+        <button type="button">Previous</button>
+        <button type="button">Next</button>
+      </div>
+
+
     </div>
   )
 }

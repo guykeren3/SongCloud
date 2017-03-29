@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
+import './assets/styles/main.scss';
 
 // Components
 
