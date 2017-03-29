@@ -1,6 +1,198 @@
-* {
-  outline: 1px solid green;
+html {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
-/*sdfsdfsdfsdfsdfsfsdfddddd
 
-dsfgsdfgfgsdfsdfsdfsdfsdfsdfsf new*/
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  height: 100%;
+  width: 100%;
+  /*overflow: auto;*/
+  /*background-color: #1b6d85;*/
+}
+
+/*Font strategy*/
+
+h1 {
+  font-size: 2rem;
+  font-weight: normal;
+}
+
+h2 {
+  font-size: 4rem;
+  font-weight: normal;
+}
+
+h3 {
+  font-size: 3rem;
+  font-weight: 300;
+}
+
+h4 {
+  font-size: 2.6rem;
+  font-weight: 300;
+}
+
+//Topbar
+
+.top-bar {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  width: 100%;
+  //height: 50px;
+}
+
+.logo-homepage-anchor {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 30%; // effects the space between the logo and title
+  padding-left: 2%;
+  text-decoration: none;
+  color: white;
+}
+
+//icon of the Topbar
+
+.fa.fa-mixcloud.scale-topbar {
+  font-size: 50px;
+}
+
+//Explore
+
+.category-nav {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  list-style: none;
+  margin-top: 0;
+  padding-left: 0;
+  border-bottom: 1px solid black;
+}
+
+.category-nav > li {
+  display: flex;
+  align-items: center;
+  border-right: 1px solid black;
+  padding: 10px;
+  width: 100%;
+}
+
+.category-nav > li a {
+  margin: 0 auto;
+  text-decoration: none;
+  color: black;
+}
+
+.songs-list-explore {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-left: 0;
+  width: 100%;
+}
+
+.songs-list-explore:after {
+  content: "";
+  flex: auto;
+}
+
+.songs-list-explore > li {
+  border: 1px solid black;
+  width: 150px;
+  height: 150px;
+  margin: 0 24px 20px 10px;
+  padding-left: 0;
+}
+
+//Signup
+
+.signup-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.logo-signup-anchor {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #2196F3;
+}
+
+.scale-signup {
+  font-size: 100px;
+  color: #2196F3;
+}
+
+.logo-signup-anchor h2 {
+  margin-top: 25px;
+  font-size: 3rem;
+}
+
+.signup-form-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.create-account-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.signup-form {
+  width: 30%; //handles input line length
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-form label {
+  color: #2196F3;
+}
+
+.signup-form input {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid blue;
+  margin-bottom: 25px;
+  line-height: 30px;
+  font-size: 1.2rem;
+}
+
+.signin-anchor-if-got-account {
+  text-decoration: none;
+}
+
+.signup-btn {
+  align-self: center;
+  text-transform: uppercase;
+  color: white;
+  background-color: #2196F3;
+  border: none;
+  font-weight: bold;
+width: 100px;
+  height: 30px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+

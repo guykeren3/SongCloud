@@ -8,20 +8,23 @@ export default function Explore() {
   return (
     <div>
       <nav>
-        <ul>
-          <li>Category</li>
-          <li>Category</li>
-          <li>Category</li>
-          <li>Category</li>
-          <li>Category</li>
-          <li>Category</li>
-          <li>Category</li>
-          <li>Category</li>
+        <ul className="category-nav">
+          <li><a href="#">Category</a></li>
+          <li><a href="#">Category</a></li>
+          <li><a href="#">Category</a></li>
+          <li><a href="#">Category</a></li>
+          <li><a href="#">Category</a></li>
+          <li><a href="#">Category</a></li>
+          <li><a href="#">Category</a></li>
         </ul>
       </nav>
 
-      <div>
-        <ul>
+      <div className="songs-wrapper">
+        <ul className="songs-list-explore">
+          <li>Song</li>
+          <li>Song</li>
+          <li>Song</li>
+          <li>Song</li>
           <li>Song</li>
           <li>Song</li>
           <li>Song</li>
