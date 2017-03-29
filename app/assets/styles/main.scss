@@ -16,8 +16,59 @@ body {
   font-size: 100%;
   height: 100%;
   width: 100%;
+  display: initial;
   /*overflow: auto;*/
   /*background-color: #1b6d85;*/
+}
+
+// fixing elements from library
+
+a:not([class*=btn]) {
+  background-size: 0;
+  background: none no-repeat 0 10%;
+  text-decoration: none;
+  color: inherit;
+  transition: background-position .3s cubic-bezier(.64,.09,.08,1);
+  will-change: background-position;
+}
+
+// fixing inputs from library
+
+input[type=email]:focus, input[type=email]:valid, input[type=text]:focus, input[type=text]:valid, input[type=password]:focus, input[type=password]:valid {
+  box-shadow: none;
+  outline: 0;
+  background-position: 0 0; //changes input line color
+}
+
+input[type=email], input[type=text], input[type=password] {
+  margin-bottom: 40px;
+  width: 200px;
+  display: block;
+  border: none;
+  padding: 10px 0;
+  border-bottom: solid 1px #1abc9c;
+  will-change: background-position;
+  transition: all .3s cubic-bezier(.64,.09,.08,1);
+  background: linear-gradient(to bottom,rgba(255,255,255,0) 96%,#1abc9c 96%);
+  background-position: -400px 0; // changes the line that appears on input
+  background-size: 100% 100%; // makes the line that appears on input be on all the input because of the 100%
+  background-repeat: no-repeat;
+  color: #0e6252;
+}
+
+[class*=btn] {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+  position: initial;
+  cursor: pointer;
+  margin-bottom: 0;
+  background-size: 0;
+  background: none no-repeat initial;
+  transition: background-color .3s cubic-bezier(.64, .09, .08, 1), box-shadow .3s cubic-bezier(.64, .09, .08, 1);
+  will-change: background-size, background-image;
+  padding: 0 0;
+  display: inline-block;
+  font-family: Roboto, sans-serif;
+  border: initial;
 }
 
 /*Font strategy*/
@@ -129,7 +180,7 @@ h4 {
 }
 
 .logo-signup-anchor {
-  margin-top: 50px;
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -137,17 +188,26 @@ h4 {
   color: #2196F3;
 }
 
-.scale-signup {
-  font-size: 100px;
+.scale-signup-logo {
+  font-size: 80px;
   color: #2196F3;
 }
 
 .logo-signup-anchor h2 {
-  margin-top: 25px;
-  font-size: 3rem;
+  font-size: 2rem;
+  margin-bottom: 0;
+  color: #2196F3;
 }
 
 .signup-form-wrapper {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.signup-form {
+  width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -156,12 +216,8 @@ h4 {
 .create-account-title {
   font-size: 1.5rem;
   font-weight: bold;
-}
-
-.signup-form {
-  width: 30%; //handles input line length
-  display: flex;
-  flex-direction: column;
+  padding-right: 290px; //here for signin / out title location
+  margin-top: 20px;
 }
 
 .signup-form label {
@@ -174,12 +230,8 @@ h4 {
   border-right: none;
   border-bottom: 1px solid blue;
   margin-bottom: 25px;
-  line-height: 30px;
   font-size: 1.2rem;
-}
-
-.signin-anchor-if-got-account {
-  text-decoration: none;
+  width: 40%; //handles input line length
 }
 
 .signup-btn {
@@ -189,10 +241,16 @@ h4 {
   background-color: #2196F3;
   border: none;
   font-weight: bold;
-width: 100px;
+  width: 100px;
   height: 30px;
   margin-top: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+a.signin-anchor-if-got-account {
+  text-decoration: none;
+  margin-left: 10px;
+  color: #2196F3;
 }
 
 

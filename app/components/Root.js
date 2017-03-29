@@ -26,8 +26,8 @@ import Player from './Player';
 export default function Root() {
   return (
     <div>
-      <Signup/>
-      {/*<Signin/>*/}
+      {/*<Signup/>*/}
+      <Signin/>
 
       {/*<Topbar/>*/}
 
