@@ -7,21 +7,21 @@ import React from 'react';
 export default function Signin() {
   return (
     <div>
-      <div className="signup-wrapper">
-        <a href="#" className="logo-signup-anchor">
-          <i className="fa fa-mixcloud scale-signup-logo" aria-hidden="true"/>
+      <div className="sign-wrapper">
+        <a href="#" className="logo-sign-anchor">
+          <i className="fa fa-mixcloud scale-sign-logo" aria-hidden="true"/>
           <h2>SongCloud</h2></a>
       </div>
-      <div className="signup-form-wrapper">
-        <form action="/login" method="post" className="signup-form">
-          <h3 className="create-account-title">Sign In</h3>
+      <div className="sign-form-wrapper">
+        <form action="/login" method="post" className="sign-form">
+          <h3 className="signin-title">Sign In</h3>
           <input type="email" required placeholder="Email"/>
             <input type="password" required placeholder="Password"/>
-          <button type="button" className="signup-btn">continue</button>
+          <button type="button" className="sign-btn">continue</button>
         </form>
 
         <p>Don't have an account yet?
-          <a href="#" className="signin-anchor-if-got-account">Create Account</a></p>
+          <a href="#" className="sign-anchor-if-got-account">Create Account</a></p>
       </div>
     </div>
   )
