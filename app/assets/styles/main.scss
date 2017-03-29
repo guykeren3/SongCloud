@@ -28,7 +28,7 @@ a:not([class*=btn]) {
   background: none no-repeat 0 10%;
   text-decoration: none;
   color: inherit;
-  transition: background-position .3s cubic-bezier(.64,.09,.08,1);
+  transition: background-position .3s cubic-bezier(.64, .09, .08, 1);
   will-change: background-position;
 }
 
@@ -48,8 +48,8 @@ input[type=email], input[type=text], input[type=password] {
   padding: 10px 0;
   border-bottom: solid 1px #1abc9c;
   will-change: background-position;
-  transition: all .3s cubic-bezier(.64,.09,.08,1);
-  background: linear-gradient(to bottom,rgba(255,255,255,0) 96%,#1abc9c 96%);
+  transition: all .3s cubic-bezier(.64, .09, .08, 1);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #1abc9c 96%);
   background-position: -400px 0; // changes the line that appears on input
   background-size: 100% 100%; // makes the line that appears on input be on all the input because of the 100%
   background-repeat: no-repeat;
@@ -96,30 +96,76 @@ h4 {
 //Topbar
 
 .top-bar {
+  background-color: #2196F3;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
-  background-color: black;
   width: 100%;
+  max-height: 50px;
+  padding: 0;
   //height: 50px;
+}
+
+.top-bar h1 {
+  margin: 0;
+}
+
+.top-bar-left-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  text-decoration: none;
+  color: white;
 }
 
 .logo-homepage-anchor {
   display: flex;
   flex-wrap: nowrap;
-  justify-content: space-between;
-  align-items: center;
-  width: 30%; // effects the space between the logo and title
-  padding-left: 2%;
+  justify-content: space-around;
+  align-items: stretch;
   text-decoration: none;
+  color: white;
+}
+
+.nav--horizontal {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+}
+
+.nav--horizontal > ul > li {
+  margin-top: 20px;
+}
+
+.nav--horizontal > ul > li > a {
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+.top-bar > input {
+  border: 1px solid white;
+  border-radius: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin: 0 5px 0 0;
+  font-size: 1rem;
+  color: white;
+}
+
+.top-bar > button {
+  border: none;
+  background-color: #2196F3;
   color: white;
 }
 
 //icon of the Topbar
 
 .fa.fa-mixcloud.scale-topbar {
-  font-size: 50px;
+  font-size: 40px;
+  color: white;
 }
 
 //Explore
@@ -172,7 +218,7 @@ h4 {
   padding-left: 0;
 }
 
-//Signup
+//Signup & sign in
 
 .sign-wrapper {
   display: flex;
