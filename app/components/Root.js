@@ -14,6 +14,13 @@ import Explore from './Explore';
 import Playlists from './Playlists';
 import Player from './Player';
 
+import {
+  BrowserRouter,
+  Redirect,
+  Route,
+  Switch,
+} from 'react-router-dom';
+
 
 // creating an object to later move to the component as argument or in case of a smart component it will be saved in props in React.Component
 // and will be accessed through this.props.
@@ -25,17 +32,23 @@ import Player from './Player';
 
 export default function Root() {
   return (
-    <div>
-      {/*<Signup/>*/}
-      {/*<Signin/>*/}
+    <BrowserRouter>
+      <div>
+        {/*<Topbar/>*/}
 
-      <Topbar/>
-
-        {/*<main>*/}
-        {/*<Explore/>*/}
-        {/*<Playlists/>*/}
-        {/*</main>*/}
+        <main>
+          {/*<Switch>*/}
+          {/*<Route exact path="/" render={() => (*/}
+            {/*<Redirect to="/explore"/>*/}
+          {/*)}/>*/}
+          {/*<Route path="/explore" component={ Explore }/>*/}
+          {/*<Route path="/playlists" component={ Playlists }/>*/}
+          {/*</Switch>*/}
+          {/*<Signup/>*/}
+          <Signin/>
+        </main>
         {/*<Player/>*/}
-    </div>
-  );
+      </div>
+    </BrowserRouter>
+  )
 };
