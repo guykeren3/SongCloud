@@ -33,7 +33,7 @@ import {
 export default function Root() {
   return (
     <BrowserRouter>
-      <div>
+      <div className="root-wrapper">
         <Topbar/>
 
         <main>
@@ -47,7 +47,7 @@ export default function Root() {
           {/*<Signup/>*/}
           {/*<Signin/>*/}
         </main>
-        {/*<Player/>*/}
+        <Player/>
       </div>
     </BrowserRouter>
   )

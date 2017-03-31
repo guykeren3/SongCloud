@@ -9,7 +9,7 @@ export default function Player() {
     <div>
       <img src="#" alt="thumbnail"/>
       <span>Song Name</span>
-      <audio src="#" controls>
+      <audio src="#" controls className="player-bar">
         <track kind="captions" src="foo.en.vtt" label="English"/>
           <track kind="captions" src="foo.sv.vtt" label="Svenska"/>
       </audio>

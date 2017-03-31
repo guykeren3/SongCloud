@@ -30,7 +30,7 @@ export default class Explore extends React.Component {
 
   createSongs() {
     const songsList = this.state.songs.map((song) => {
-      return <li key={song.title}> {song.title} <img src={song.artwork_url} alt="MDN"></img> </li>
+      return <li key={song.title}> <img src={song.artwork_url} alt="MDN"></img> {song.title} </li>
     });
 
     return (
@@ -49,7 +49,7 @@ export default class Explore extends React.Component {
         return <div>Error!</div>;
       case 'loaded':
     return (
-      <div>
+      <div className="explore-container">
         <nav>
           <ul className="category-nav">
             <li><a href="#">Generes:</a></li>
@@ -63,16 +63,19 @@ export default class Explore extends React.Component {
           </ul>
         </nav>
 
+        <div className="title-container">
+        <h3>Genre: Hip-hop rap</h3>
+        </div>
         <div className="songs-wrapper">
 
           { this.createSongs() }
 
           </div>
 
-        <div>
+        <div className="page-num-wrapper">
+          <button type="button" className="page-btn">Previous</button>
           <span>Page 1</span>
-          <button type="button">Previous</button>
-          <button type="button">Next</button>
+          <button type="button" className="page-btn">Next</button>
         </div>
 
 
