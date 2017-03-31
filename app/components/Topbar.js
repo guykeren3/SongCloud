@@ -15,18 +15,19 @@ export default function Topbar() {
           <i className="fa fa-mixcloud scale-topbar" aria-hidden="true"/>
           <h1>SongCloud</h1>
         </NavLink>
-        <nav className="nav--horizontal g--4 g--3 nav--horizontal">
+        <nav className="nav-bar">
           <ul>
-            <li><NavLink to="/explore">Explore</NavLink></li>
-            <li><NavLink to="/playlists">Playlists</NavLink></li>
+            <li><NavLink to="/explore" className="nav-links">Explore</NavLink></li>
+            <li><NavLink to="/playlists" className="nav-links">Playlists</NavLink></li>
           </ul>
         </nav>
       </div>
-      <div>
+      <div className="top-bar-right-wrapper">
         <i className="fa fa-search" aria-hidden="true"/>
-        <input type="text" placeholder="SEARCH" className="fix-placeholder-topbar"/>
+        <input type="text" placeholder="SEARCH" className="search-box"/>
+        <button type="button"> Logout</button>
       </div>
-      <button type="button"> Logout</button>
+
 
     </header>
   )

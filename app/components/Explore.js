@@ -52,7 +52,7 @@ export default class Explore extends React.Component {
       <div>
         <nav>
           <ul className="category-nav">
-            <li>Generes:</li>
+            <li><a href="#">Generes:</a></li>
             <li><a href="#">all-music</a></li>
             <li><a href="#">hip-hop rap</a></li>
             <li><a href="#">house</a></li>

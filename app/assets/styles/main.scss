@@ -21,17 +21,6 @@ body {
   /*background-color: #1b6d85;*/
 }
 
-// fixing elements from library
-
-a:not([class*=btn]) {
-  background-size: 0;
-  background: none no-repeat 0 10%;
-  text-decoration: none;
-  color: inherit;
-  transition: background-position .3s cubic-bezier(.64, .09, .08, 1);
-  will-change: background-position;
-}
-
 // both line customizes classes effects the line that is created while focused on an input of choice
 
 .line-customize {
@@ -83,7 +72,7 @@ h4 {
 .top-bar {
   background-color: #2196F3;
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -93,64 +82,100 @@ h4 {
 }
 
 .top-bar h1 {
-  margin: 0;
-}
-
-.top-bar-left-wrapper {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-items: stretch;
-  text-decoration: none;
-  color: white;
-}
-
-.logo-homepage-anchor {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-around;
-  align-items: stretch;
-  text-decoration: none;
-  color: white;
-}
-
-.nav--horizontal {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  align-items: center;
-}
-
-.nav--horizontal > ul > li {
-  margin-top: 20px;
-}
-
-.nav--horizontal > ul > li > a {
-  padding-bottom: 15px;
-  padding-top: 15px;
-}
-
-.top-bar > input {
-  border: 1px solid white;
-  border-radius: 10px;
-  padding-top: 3px;
-  padding-bottom: 3px;
-  margin: 0 5px 0 0;
-  font-size: 1rem;
-  color: white;
-}
-
-.top-bar > button {
-  border: none;
-  background-color: #2196F3;
-  color: white;
+  font-size: 1.2rem;
+  margin-left: 15px;
 }
 
 //icon of the Topbar
 
 .fa.fa-mixcloud.scale-topbar {
-  font-size: 40px;
+  padding-top: 5px;
+  font-size: 2rem;
   color: white;
+}
+
+.top-bar-left-wrapper { //effects logo and title
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  text-decoration: none;
+  color: white;
+}
+
+.logo-homepage-anchor {
+  margin-left: 10px;
+  display: flex;
+  text-decoration: none;
+  color: white;
+}
+
+.nav-bar > ul {
+  //margin-top: 20px;
+  list-style: none;
+}
+
+.nav-bar > ul > li {
+  display: inline-block;
+}
+
+.nav-links {
+  vertical-align: middle;
+  text-decoration: none;
+  color: white;
+  padding: 15px; //effects the bgc size of the link (blue on topbar)
+}
+
+.nav-links:hover {
+  background-color: #1E88E5;
+}
+
+// right side topbar
+
+.top-bar-right-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  text-decoration: none;
+  color: white;
+  position: relative; //for icon position in input
+  padding-right: 1%;
+}
+
+.top-bar-right-wrapper > input {
+  font-family: Roboto-Light, sans-serif;
+  border: 1px solid white;
+  border-radius: 10px;
+  height: 20px;
+  width: 250px;
+  margin: 0 5px 0 0;
+  font-size: 0.9rem;
+  color: white;
+  position: relative; // for icon of search
+  background-color: #1E88E5;
+  padding-left: 20px; //effects the location of the text inside!
+}
+
+.search-box::-webkit-input-placeholder { // catches the placeholder
+  color: white;
+}
+
+.top-bar-right-wrapper > i {
+  font-size: 0.8rem;
+  color: white;
+  position: absolute;
+  top: 4px;
+  left: 5px;
+  z-index: 10; //if not defined hides behind input
+}
+
+.top-bar-right-wrapper > button {
+  font-family: Roboto-Light, sans-serif;
+  border: none;
+  background-color: #2196F3;
+  color: white;
+  cursor: pointer;
 }
 
 //Explore
@@ -158,21 +183,21 @@ h4 {
 .category-nav {
   display: flex;
   flex-wrap: nowrap;
-  justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   list-style: none;
   margin-top: 0;
   padding-left: 0;
-  border-bottom: 1px solid black;
+  background-color: #DDE4E6;
 }
 
 .category-nav > li {
-  display: flex;
-  align-items: center;
-  border-right: 1px solid black;
-  padding: 10px;
-  width: 100%;
+  padding: 10px 35px 10px 10px;
+  font-family: Roboto-Light, sans-serif;
+}
+
+.category-nav > li:first-child {
+  font-weight: bold;
 }
 
 .category-nav > li a {
@@ -190,7 +215,7 @@ h4 {
   width: 100%;
 }
 
-.songs-list-explore:after {
+.songs-list-explore:after { //fixing last row problem with songs
   content: "";
   flex: auto;
 }
@@ -289,6 +314,7 @@ h4 {
   margin-top: 20px;
   margin-bottom: 20px;
   text-align: center;
+  text-transform: uppercase;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
   cursor: pointer;
   background-size: 0;
