@@ -19,7 +19,7 @@ export default class Explore extends React.Component {
     console.info(this.props.match.params);
     const genre = this.props.match.params.genre;
 
-    xhr.open('GET', `https://create-bootcamp-songcloud-server.now.sh/tracks?genre=${genre}`);
+    xhr.open('GET', `https://api.soundcloud.com/tracks?client_id=2t9loNQH90kzJcsFCODdigxfp325aq4z&limit=20&offset=0&tags=${genre}`);
     xhr.addEventListener('load', () => {
       this.setState({songs: JSON.parse(xhr.responseText), loadingState: 'loaded'});
     });
@@ -42,6 +42,7 @@ export default class Explore extends React.Component {
     this.getXhr();
   }
 
+  // turning the miliseconds of the songs to minutes
   convertSecondsToMinutes(songDuration) {
     const minutes = Math.floor(parseInt(songDuration) / 60000);
     const seconds = ((parseInt(songDuration % 60000) / 1000).toFixed(0));
@@ -56,7 +57,9 @@ export default class Explore extends React.Component {
         <div style={{backgroundImage: `url(${song.artwork_url.replace('large', 't300x300')})`}}
              className="song-in-list"></div>
         <span>{this.songTitleLimiter(song.title)}</span>
-        <div className="clock-icon"><i className="fa fa-clock-o" aria-hidden="true"></i> {this.convertSecondsToMinutes(song.duration)}</div>
+        <div className="clock-icon"><i className="fa fa-clock-o"
+                                       aria-hidden="true"></i> {this.convertSecondsToMinutes(song.duration)}</div>
+        <i className="fa fa-heart-o heart-font" aria-hidden="true"></i>
       </li>
     });
 
@@ -66,6 +69,26 @@ export default class Explore extends React.Component {
       </ul>
     );
   }
+
+// full heart
+//<i className="fa fa-heart" aria-hidden="true"></i>
+
+  // toggle heart color on click
+
+//   toggleHeart(classname) {
+//     if (classname === 'heart-font fa fa-heart-o heart-font') {
+//       this.heart.className = "heart-font fa fa-heart check-h";
+//     }
+//     if (classname === "heart-font fa fa-heart check-h") {
+//       this.heart.className = 'heart-font fa fa-heart-o';
+//     }
+//   }
+//
+// <i className="heart-font fa fa-heart-o" ref={(heartDomElm) => {
+//   this.heart = heartDomElm
+// }} onClick={() => {
+//   this.addToPlaylistMnu()
+// }}>
 
 
   songTitleLimiter(title) {
@@ -81,7 +104,9 @@ export default class Explore extends React.Component {
   render() {
     switch (this.state.loadingState) {
       case 'loading':
-        return <div>Loading...</div>;
+        // icon is spinnig loading from icons website
+        return <div className="loader"><i className="fa fa-spinner fa-pulse fa-3x fa-fw"></i> </div>;
+
       case 'error':
         return <div>Error!</div>;
       case 'loaded':

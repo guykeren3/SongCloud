@@ -30,27 +30,46 @@ import {
 
 // everything that will be written under greeting will be an object with properties and values.
 
-export default function Root() {
-  return (
-    <BrowserRouter>
-      <div className="root-wrapper">
-        <Topbar/>
+export default class Root extends React.Component {
+  constructor() {
+    super();
+    this.state = {}
+  }
 
-        <main>
-          <Switch>
-            <Route exact path="/" render={() => (
-              <Redirect to="/explore"/>
-            )}/>
-            <Route exact path="/explore" render={ () => (              <Redirect to="/explore/dubstep"/>
-            )}/>
-            <Route path="/explore/:genre" component={ Explore }/>
-            <Route path="/playlists" component={ Playlists }/>
-          </Switch>
-          {/*<Signup/>*/}
-          {/*<Signin/>*/}
-        </main>
-        <Player/>
-      </div>
-    </BrowserRouter>
-  )
-};
+  render() {
+
+    return (
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/signin" component={ Signin }/>
+          <Route exact path="/signup" component={ Signup }/>
+
+          <Route path="/" component={() => {
+            return (
+              <div className="root-wrapper">
+                <Topbar/>
+
+                <main>
+                  <Switch>
+                    <Route exact path="/" render={() => (
+                      <Redirect to="/explore"/>
+                    )}/>
+                    <Route exact path="/explore" render={ () => (              <Redirect to="/explore/dubstep"/>
+                    )}/>
+                    <Route path="/explore/:genre" component={ Explore }/>
+                    <Route path="/playlists" component={ Playlists }/>
+                  </Switch>
+
+                </main>
+
+                <Player trackUri={ this.state.currentTask }/>
+
+              </div>
+            )
+
+          }}/>
+        </Switch>
+      </BrowserRouter>
+    );
+  }
+}

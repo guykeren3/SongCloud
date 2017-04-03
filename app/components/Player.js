@@ -12,11 +12,12 @@ export default function Player() {
         <span className="song-name">Song Name</span>
       </div>
       <div className="player-display">
-        <audio src="#" controls className="player-bar">
-          <track kind="captions" src="foo.en.vtt" label="English"/>
-          <track kind="captions" src="foo.sv.vtt" label="Svenska"/>
+        <audio className="player-bar" controls>
+          <source src="https://api.soundcloud.com/tracks/79973942/stream?client_id=2t9loNQH90kzJcsFCODdigxfp325aq4z"
+                  type="audio/ogg"/>
         </audio>
       </div>
     </div>
   )
 }
+
