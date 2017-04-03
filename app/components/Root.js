@@ -38,11 +38,13 @@ export default function Root() {
 
         <main>
           <Switch>
-          <Route exact path="/" render={() => (
-            <Redirect to="/explore"/>
-          )}/>
-          <Route path="/explore" component={ Explore }/>
-          <Route path="/playlists" component={ Playlists }/>
+            <Route exact path="/" render={() => (
+              <Redirect to="/explore"/>
+            )}/>
+            <Route exact path="/explore" render={ () => (              <Redirect to="/explore/dubstep"/>
+            )}/>
+            <Route path="/explore/:genre" component={ Explore }/>
+            <Route path="/playlists" component={ Playlists }/>
           </Switch>
           {/*<Signup/>*/}
           {/*<Signin/>*/}

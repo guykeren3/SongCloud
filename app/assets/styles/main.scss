@@ -22,8 +22,9 @@ body {
 }
 
 .root-wrapper {
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
+
 // both line customizes classes effects the line that is created while focused on an input of choice
 
 .line-customize {
@@ -234,6 +235,7 @@ h4 {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-left: 20px;
 }
 
 .title-container { // for centering the title
@@ -254,25 +256,43 @@ h4 {
   flex-wrap: wrap;
   justify-content: space-between;
   padding-left: 0;
-  width: 97%; //effects song list width
+  width: 100%; //effects song list width
 }
 
 .songs-list-explore:after { //fixing last row problem with songs
   content: "";
-  flex: auto;
+  flex: inherit;
 }
 
 .songs-list-explore li {
   border: 1px solid #D8D8D8;
   width: 220px;
   height: 140px;
-  margin: 0 31px 20px 10px; //margin right effects the other lines
-  padding-left: 0;
+  margin: 0 35px 20px 10px; //margin right effects the other lines
+  padding: 10px;
+  font-size: 0.8rem;
+  font-family: Roboto-Regular, sans-serif;
+  position: relative;
 }
 
-.songs-list-explore img {
-  width: 80%;
-  height: 50%;
+.songs-list-explore li span {
+  line-height: 3;
+}
+
+.song-in-list { // songs div background
+  width: 200px;
+  height: 85px;
+  background-repeat: no-repeat;
+  background-position: 50% 20%;
+  background-size: 200px 85px;
+}
+
+.clock-icon {
+  height: 20px;
+  width: 50px;
+  position: absolute;
+  bottom: -5px;
+  left: 10px;
 }
 
 .page-num-wrapper {
@@ -301,6 +321,42 @@ h4 {
   cursor: pointer;
   background-size: 0;
   font-family: Roboto-Medium, sans-serif;
+}
+
+// player
+
+.player-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #FBFBFB;
+}
+
+.player-display {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
+
+.player-display audio {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  align-items: center;
+}
+
+.thumbnail-info {
+  display: flex;
+  width: 0;
+}
+
+.thumbnail-info img {
+  width: 50px;
+  height: 50px;
 }
 
 //Signup & sign in
