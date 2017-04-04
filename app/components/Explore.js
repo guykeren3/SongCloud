@@ -63,8 +63,8 @@ export default class Explore extends React.Component {
       const imgUrl = song.artwork_url ? song.artwork_url.replace('large', 't300x300') : song.artwork_url;
       return <li key={song.title}>
         <div style={{backgroundImage: `url(${imgUrl})`}}
-             className="song-in-list"/>
-        onClick={ () => this.props.updateCurrentTrack }
+             className="song-in-list"
+             onClick={ () => this.props.updateCurrentTrack }/>
         <span>{this.songTitleLimiter(song.title)}</span>
         <div className="clock-icon"><i className="fa fa-clock-o"
                                        aria-hidden="true"/> {this.convertSecondsToMinutes(song.duration)}</div>

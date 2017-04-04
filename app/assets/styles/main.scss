@@ -519,6 +519,19 @@ a.sign-anchor-if-got-account {
   padding-left: 20px;
   font-size: 1.38rem;
   font-family: Roboto-Light, sans-serif;
+  position: relative;
+}
+
+.playlist-wrapper .playlist-titles span {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 120px;
+  background-color: #2196F3;
+  padding: 5px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
 }
 
 // delete button on hover on the div which is the title

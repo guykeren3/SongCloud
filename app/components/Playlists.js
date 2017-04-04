@@ -28,7 +28,7 @@ export default function Playlists() {
 
         <div className="playlist-container">
           <div className="playlist-titles">
-            My songs
+            My songs <span>8</span>
             <button type="button">delete</button>
           </div>
           <ul className="songs-list-explore-playlist">
@@ -46,7 +46,7 @@ export default function Playlists() {
 
         <div className="playlist-container">
           <div className="playlist-titles">
-            Cool trance music
+            Cool trance music <span>8</span>
             <button type="button">delete</button>
           </div>
           <ul className="songs-list-explore-playlist">
@@ -63,7 +63,7 @@ export default function Playlists() {
 
         <div className="playlist-container">
           <div className="playlist-titles">
-            House party 2017
+            House party 2017 <span>8</span>
             <button type="button">delete</button>
           </div>
           <ul className="songs-list-explore-playlist">
@@ -80,7 +80,7 @@ export default function Playlists() {
 
         <div className="playlist-container">
           <div className="playlist-titles">
-            Old
+            Old <span>8</span>
             <button type="button">delete</button>
           </div>
           <ul className="songs-list-explore-playlist">
@@ -97,7 +97,7 @@ export default function Playlists() {
 
         <div className="playlist-container">
           <div className="playlist-titles">
-            Raggae
+            Raggae <span>8</span>
             <button type="button">delete</button>
           </div>
           <ul className="songs-list-explore-playlist">

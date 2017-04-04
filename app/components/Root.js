@@ -47,11 +47,7 @@ export default class Root extends React.Component {
   render() {
 
     return (
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/signin" component={ Signin }/>
-          <Route exact path="/signup" component={ Signup }/>
-
+      <div>
           <Route path="/" component={() => {
             return (
               <div className="root-wrapper">
@@ -80,8 +76,7 @@ export default class Root extends React.Component {
             )
 
           }}/>
-        </Switch>
-      </BrowserRouter>
+      </div>
     );
   }
 }
