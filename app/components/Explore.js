@@ -11,15 +11,18 @@ export default class Explore extends React.Component {
     this.state = {
       songs: [],
       loadingState: 'loading',
+      offset: 0,
+      limit: 15
     };
   }
 
-  getXhr() {
+  getSongs() {
     const xhr = new XMLHttpRequest();
-    console.info(this.props.match.params);
     const genre = this.props.match.params.genre;
+    const offset = this.state.offset;
+    const limit = this.state.limit;
 
-    xhr.open('GET', `https://api.soundcloud.com/tracks?client_id=2t9loNQH90kzJcsFCODdigxfp325aq4z&limit=20&offset=0&tags=${genre}`);
+    xhr.open('GET', `https://api.soundcloud.com/tracks?client_id=2t9loNQH90kzJcsFCODdigxfp325aq4z&limit=${limit}&offset=${offset}&tags=${genre}`);
     xhr.addEventListener('load', () => {
       this.setState({songs: JSON.parse(xhr.responseText), loadingState: 'loaded'});
     });
@@ -31,15 +34,19 @@ export default class Explore extends React.Component {
   }
 
   componentDidMount() {
-    this.getXhr()
+    this.getSongs()
   }
 
-  componentDidUpdate(prevProps) { // fixing the switch between the genres on click
+  componentDidUpdate(prevProps, prevState) { // fixing the switch between the genres on click
 
-    if (prevProps.match.params.genre === this.props.match.params.genre)
-      return;
-    console.log('did update');
-    this.getXhr();
+    if (prevProps.match.params.genre !== this.props.match.params.genre || prevState.offset !== this.state.offset) {
+      // this.setState({offset: 0}, () => {
+      //   this.getSongs();
+      // });
+
+      console.log('did update');
+    }
+    this.getSongs();
   }
 
   // turning the miliseconds of the songs to minutes
@@ -53,13 +60,15 @@ export default class Explore extends React.Component {
 
   createSongs() {
     const songsList = this.state.songs.map((song) => {
+      const imgUrl = song.artwork_url ? song.artwork_url.replace('large', 't300x300') : song.artwork_url;
       return <li key={song.title}>
-        <div style={{backgroundImage: `url(${song.artwork_url.replace('large', 't300x300')})`}}
-             className="song-in-list"></div>
+        <div style={{backgroundImage: `url(${imgUrl})`}}
+             className="song-in-list"/>
+        onClick={ () => this.props.updateCurrentTrack }
         <span>{this.songTitleLimiter(song.title)}</span>
         <div className="clock-icon"><i className="fa fa-clock-o"
-                                       aria-hidden="true"></i> {this.convertSecondsToMinutes(song.duration)}</div>
-        <i className="fa fa-heart-o heart-font" aria-hidden="true"></i>
+                                       aria-hidden="true"/> {this.convertSecondsToMinutes(song.duration)}</div>
+        <i className="fa fa-heart-o heart-font" aria-hidden="true"/>
       </li>
     });
 
@@ -68,6 +77,18 @@ export default class Explore extends React.Component {
         {songsList}
       </ul>
     );
+  }
+
+  prevPage() {
+    this.setState({
+      offset: this.state.offset - this.state.limit
+    });
+  }
+
+  nextPage() {
+    this.setState({
+      offset: this.state.offset + this.state.limit
+    });
   }
 
 // full heart
@@ -105,7 +126,9 @@ export default class Explore extends React.Component {
     switch (this.state.loadingState) {
       case 'loading':
         // icon is spinnig loading from icons website
-        return <div className="loader"><i className="fa fa-spinner fa-pulse fa-3x fa-fw"></i> </div>;
+        return <div className="loader">
+          <i className="fa fa-spinner fa-pulse fa-3x fa-fw"/>
+        </div>;
 
       case 'error':
         return <div>Error!</div>;
@@ -125,11 +148,12 @@ export default class Explore extends React.Component {
             </div>
 
             <div className="page-num-wrapper">
-              <button type="button" className="page-btn">Previous</button>
-              <span>Page 1</span>
-              <button type="button" className="page-btn">Next</button>
+              <button onClick={ this.prevPage.bind(this) } className="page-btn" disabled={this.state.offset === 0}>
+                Previous
+              </button>
+              <span>Page { this.state.offset / this.state.limit + 1 }</span>
+              <button onClick={ this.nextPage.bind(this) } className="page-btn">Next</button>
             </div>
-
 
           </div>
         )

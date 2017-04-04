@@ -489,4 +489,132 @@ a.sign-anchor-if-got-account {
   color: #2196F3;
 }
 
+// playlist
+
+.playlist-page-container { // aligning both side bar and main next to one another
+  display: inline-flex;
+  width: 100%;
+}
+
+.playlist-wrapper {
+  width: 100%;
+  // the padding creates a padding inside the main which centeres the children!!!!!
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.playlist-container {
+  outline: 1px solid red;
+}
+
+.playlist-wrapper .playlist-titles {
+  display: flex;
+  flex: 0 0 100%; /* Let it fill the entire space horizontally */
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 64px;
+  box-shadow: 0 1px 3px 0 grey;
+  margin-top: 20px;
+  padding-left: 20px;
+  font-size: 1.38rem;
+  font-family: Roboto-Light, sans-serif;
+}
+
+// delete button on hover on the div which is the title
+
+.playlist-wrapper .playlist-titles button {
+  display: none;
+}
+
+.playlist-wrapper .playlist-titles:hover button {
+  display: initial;
+  font-family: Roboto-Medium, sans-serif;
+  text-transform: capitalize;
+  font-size: 0.81rem;
+  color: #F44336;
+  border: none;
+  background-color: white;
+  background-size: 0;
+  cursor: pointer;
+  padding-right: 50px;
+}
+
+.playlist-wrapper > div > ul > li {
+  list-style: none;
+}
+
+.songs-list-explore-playlist {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.song-in-list-playlist { // songs div background
+  width: 220px;
+  height: 140px;
+  margin: 40px;
+  background-repeat: no-repeat;
+  background-position: 50% 30%;
+  background-size: cover;
+  outline: 1px solid red;
+}
+
+.playlist-side-bar {
+  width: 12.5rem;
+  height: 60.19rem;
+  border-right: 1px solid lightgrey;
+  display: flex;
+  flex-direction: column;
+}
+
+.add-playlist-container {
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-playlist-container button {
+  color: white;
+  background-color: #2196F3;
+  border-radius: 0.13rem;
+  border: none;
+  font-weight: bold;
+  width: 11.25rem;
+  height: 1.88rem;
+  font-family: Roboto, sans-serif;
+  cursor: pointer;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.my-songs-container {
+  padding-left: 20px;
+}
+
+.my-songs-list-playlist {
+  list-style: none;
+  font-size: 0.94rem;
+  font-family: Roboto-Light, sans-serif;
+  padding-left: 0; // reset default list padding
+  padding-top: 20px;
+}
+
+.my-songs-list-playlist li {
+  padding-bottom: 1.25rem;
+}
+
+.my-songs-list-playlist a { // effects the links
+  text-decoration: none;
+  color: black;
+}
+
 

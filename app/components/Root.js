@@ -33,7 +33,15 @@ import {
 export default class Root extends React.Component {
   constructor() {
     super();
-    this.state = {}
+    this.state = {
+      currentTrack: {}
+    };
+  }
+
+  updateCurrentTrack(newSong) {
+    this.setState({
+      currentTrack: Object.assign({}, newSong)
+    });
   }
 
   render() {
@@ -51,18 +59,22 @@ export default class Root extends React.Component {
 
                 <main>
                   <Switch>
-                    <Route exact path="/" render={() => (
-                      <Redirect to="/explore"/>
-                    )}/>
-                    <Route exact path="/explore" render={ () => (              <Redirect to="/explore/dubstep"/>
-                    )}/>
+                    <Route exact path="/" component={() => {
+                      return <Redirect to="/explore"/>;
+                    }}/>
+
                     <Route path="/explore/:genre" component={ Explore }/>
+
+                    <Route exact path="/explore" component={ () => {
+                      return <Redirect to="/explore/dubstep"/>;
+                    }}/>
+
                     <Route path="/playlists" component={ Playlists }/>
                   </Switch>
 
                 </main>
 
-                <Player trackUri={ this.state.currentTask }/>
+                <Player track={ this.state.currentTrack }/>
 
               </div>
             )

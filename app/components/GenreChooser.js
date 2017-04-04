@@ -23,12 +23,10 @@ export default class GenreChooser extends React.Component {
               <ul className="category-nav">
                 <li>Generes:</li>
                 <li><Link to=''>all-music</Link></li>
-                <li><Link to=''>hip-hop rap</Link></li>
+                <li><Link to='/explore/hip-hop rap'>hip-hop rap</Link></li>
                 <li><NavLink to="/explore/trance" activeClassName="selected-genre">Trance</NavLink></li>
                 <li><Link to='/explore/house'>house</Link></li>
-                <li><Link to=''>rock</Link></li>
-                <li><Link to=''>pop</Link></li>
-                <li><Link to=''>reggaeton</Link></li>
+                <li><Link to='/explore/rock'>rock</Link></li>
                 <li><Link to='/explore/dubstep'>dubstep</Link></li>
               </ul>
             </nav>
