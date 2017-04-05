@@ -31,6 +31,7 @@ export default class Root extends React.Component {
   constructor() {
     super();
     this.updateCurrentTrack = this.updateCurrentTrack.bind(this); //hack so we wont use this every time with this function
+    this.createPlaylist = this.createPlaylist.bind(this);
     this.state = {
       currentTrack: {},
       playLists: []
@@ -41,7 +42,6 @@ export default class Root extends React.Component {
     this.setState({
       currentTrack: Object.assign({}, newSong)
     });
-    console.info(this.state.currentTrack);
   }
 
   createPlaylist(song, redirectTo) {
@@ -51,13 +51,20 @@ export default class Root extends React.Component {
       name: 'Untitled',
       songs: song
     });
-    this.setState({
-      playLists: newPlaylist
-    }, () => {
-      if (redirectTo) {
+    if (!redirectTo) {
+      this.setState({
+        playLists: newPlaylist
+      });
+    }
+    if (redirectTo) {
+      this.setState({
+        playLists: newPlaylist
+      }, () => {
+
         this.props.history.push(redirectTo);
-      }
-    })
+
+      })
+    }
   }
 
   render() {
@@ -76,6 +83,7 @@ export default class Root extends React.Component {
 
             <Route path="/explore/:genre" render={ (props) => {
               return <Explore updateCurrentTrack={ this.updateCurrentTrack }
+                              createPlaylist={ this.createPlaylist }
                               {...props}/>
             } }/>
 

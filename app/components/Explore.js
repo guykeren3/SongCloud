@@ -64,6 +64,7 @@ export default class Explore extends React.Component {
   }
 
   createSongs() {
+    console.info(this.props);
     const songsList = this.state.songs.map((song) => {
       const imgUrl = song.artwork_url ? song.artwork_url.replace('large', 't300x300') : song.artwork_url;
       return <li key={song.title}>
@@ -78,7 +79,7 @@ export default class Explore extends React.Component {
 
           <div className="dropdown-menu-explore">
             <h4> Add to Playlist </h4>
-            <button type="button" onClick={ () => this.props.createPlaylist(song, './playlists')}> Create playlist +
+            <button type="button" onClick={ () => this.props.createPlaylist(song, '/playlists')}> Create playlist +
             </button>
             <form>
               <div>
