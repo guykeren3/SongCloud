@@ -4,18 +4,15 @@
 
 // importing react to use JSX
 import React from 'react';
-
+import uuid from 'uuid';
 // importing every component to the root
 
-import Signup from './Signup';
-import Signin from './Signin';
 import Topbar from './Topbar';
 import Explore from './Explore';
 import Playlists from './Playlists';
 import Player from './Player';
 
 import {
-  BrowserRouter,
   Redirect,
   Route,
   Switch,
@@ -33,8 +30,10 @@ import {
 export default class Root extends React.Component {
   constructor() {
     super();
+    this.updateCurrentTrack = this.updateCurrentTrack.bind(this); //hack so we wont use this every time with this function
     this.state = {
-      currentTrack: {}
+      currentTrack: {},
+      playLists: []
     };
   }
 
@@ -42,41 +41,64 @@ export default class Root extends React.Component {
     this.setState({
       currentTrack: Object.assign({}, newSong)
     });
+    console.info(this.state.currentTrack);
+  }
+
+  createPlaylist(song, redirectTo) {
+    const newPlaylist = [...this.state.playLists];
+    newPlaylist.push({
+      id: uuid(),
+      name: 'Untitled',
+      songs: song
+    });
+    this.setState({
+      playLists: newPlaylist
+    }, () => {
+      if (redirectTo) {
+        this.props.history.push(redirectTo);
+      }
+    })
   }
 
   render() {
 
     return (
-      <div>
-          <Route path="/" component={() => {
-            return (
-              <div className="root-wrapper">
-                <Topbar/>
+      <div className="root-wrapper">
+        <Topbar/>
 
-                <main>
-                  <Switch>
-                    <Route exact path="/" component={() => {
-                      return <Redirect to="/explore"/>;
-                    }}/>
+        <main>
+          <Switch>
+            <Route exact path="/" component={() => {
+              return <Redirect to="/explore"/>;
+            }}/>
 
-                    <Route path="/explore/:genre" component={ Explore }/>
+            {/*App routes*/}
 
-                    <Route exact path="/explore" component={ () => {
-                      return <Redirect to="/explore/dubstep"/>;
-                    }}/>
+            <Route path="/explore/:genre" render={ (props) => {
+              return <Explore updateCurrentTrack={ this.updateCurrentTrack }
+                              {...props}/>
+            } }/>
 
-                    <Route path="/playlists" component={ Playlists }/>
-                  </Switch>
+            <Route
+              exact
+              path="/explore"
+              component={() => {
+                return <Redirect to="/explore/dubstep"/>;
+              }
+              }/>
 
-                </main>
+            <Route path="/playlists"
+                   component={Playlists}/>
 
-                <Player track={ this.state.currentTrack }/>
+          </Switch>
 
-              </div>
-            )
+        </main>
 
-          }}/>
+        <Player track={ this.state.currentTrack }/>
+
       </div>
-    );
+    )
   }
 }
+
+

@@ -4,6 +4,7 @@
 
 import React from 'react';
 import GenreChooser from './GenreChooser'
+import {Link} from "react-router-dom";
 
 export default class Explore extends React.Component {
   constructor() {
@@ -16,6 +17,10 @@ export default class Explore extends React.Component {
     };
   }
 
+  songsState(xhr) {
+    this.setState({songs: JSON.parse(xhr.responseText), loadingState: 'loaded'});
+  }
+
   getSongs() {
     const xhr = new XMLHttpRequest();
     const genre = this.props.match.params.genre;
@@ -23,9 +28,7 @@ export default class Explore extends React.Component {
     const limit = this.state.limit;
 
     xhr.open('GET', `https://api.soundcloud.com/tracks?client_id=2t9loNQH90kzJcsFCODdigxfp325aq4z&limit=${limit}&offset=${offset}&tags=${genre}`);
-    xhr.addEventListener('load', () => {
-      this.setState({songs: JSON.parse(xhr.responseText), loadingState: 'loaded'});
-    });
+    xhr.addEventListener('load', this.songsState.bind(this, xhr));
 
     xhr.addEventListener('error', () => {
       this.setState({loadingState: 'error'});
@@ -39,14 +42,16 @@ export default class Explore extends React.Component {
 
   componentDidUpdate(prevProps, prevState) { // fixing the switch between the genres on click
 
-    if (prevProps.match.params.genre !== this.props.match.params.genre || prevState.offset !== this.state.offset) {
-      // this.setState({offset: 0}, () => {
-      //   this.getSongs();
-      // });
-
+    if (prevProps.match.params.genre !== this.props.match.params.genre) {
+      this.setState({offset: 0}, () => {
+        this.getSongs();
+      });
       console.log('did update');
     }
-    this.getSongs();
+
+    if (prevState.offset !== this.state.offset) {
+      this.getSongs();
+    }
   }
 
   // turning the miliseconds of the songs to minutes
@@ -64,11 +69,37 @@ export default class Explore extends React.Component {
       return <li key={song.title}>
         <div style={{backgroundImage: `url(${imgUrl})`}}
              className="song-in-list"
-             onClick={ () => this.props.updateCurrentTrack }/>
+             onClick={ () => this.props.updateCurrentTrack(song) }/>
         <span>{this.songTitleLimiter(song.title)}</span>
         <div className="clock-icon"><i className="fa fa-clock-o"
                                        aria-hidden="true"/> {this.convertSecondsToMinutes(song.duration)}</div>
-        <i className="fa fa-heart-o heart-font" aria-hidden="true"/>
+        <div className="heart-container">
+          <i className="fa fa-heart-o heart-font" aria-hidden="true"/>
+
+          <div className="dropdown-menu-explore">
+            <h4> Add to Playlist </h4>
+            <button type="button" onClick={ () => this.props.createPlaylist(song, './playlists')}> Create playlist +
+            </button>
+            <form>
+              <div>
+                <input name="my-songs" id="my-songs" type="checkbox"/>
+                <label htmlFor="my-songs">My songs</label>
+              </div>
+              <div>
+                <input name="cool-trance-music" id="cool-trance-music" type="checkbox"/>
+                <label htmlFor="cool-trance-music">Cool trance music</label>
+              </div>
+              <div>
+                <input name="house-party-2017" id="house-party-2017" type="checkbox"/>
+                <label htmlFor="house-party-2017">House party 2017</label>
+              </div>
+              <div>
+                <input name="old" id="old" type="checkbox"/>
+                <label htmlFor="old">Old</label>
+              </div>
+            </form>
+          </div>
+        </div>
       </li>
     });
 
