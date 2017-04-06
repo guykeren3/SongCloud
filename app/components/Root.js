@@ -49,7 +49,7 @@ export default class Root extends React.Component {
     newPlaylist.push({
       id: uuid(),
       name: 'Untitled',
-      songs: song
+      song: song
     });
     if (!redirectTo) {
       this.setState({
@@ -61,7 +61,7 @@ export default class Root extends React.Component {
         playLists: newPlaylist
       }, () => {
 
-        this.props.history.push(redirectTo);
+        this.props.history.push(redirectTo); // handles url
 
       })
     }
@@ -95,8 +95,12 @@ export default class Root extends React.Component {
               }
               }/>
 
-            <Route path="/playlists"
-                   component={Playlists}/>
+            <Route path="/playlists" render={ (props) => {
+            return <Playlists playlist={ this.state.playLists }
+                              createPlaylist={ this.createPlaylist }
+                              {...props}/>
+            } }/>
+
 
           </Switch>
 

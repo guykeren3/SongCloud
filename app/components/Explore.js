@@ -3,12 +3,17 @@
  */
 
 import React from 'react';
-import GenreChooser from './GenreChooser'
 import {Link} from "react-router-dom";
+
+import GenreChooser from './GenreChooser'
+import Song from './Song'
 
 export default class Explore extends React.Component {
   constructor() {
     super();
+    this.songTitleLimiter = this.songTitleLimiter.bind(this);
+    this.convertSecondsToMinutes = this.convertSecondsToMinutes.bind(this);
+
     this.state = {
       songs: [],
       loadingState: 'loading',
@@ -64,45 +69,14 @@ export default class Explore extends React.Component {
   }
 
   createSongs() {
-    console.info(this.props);
     const songsList = this.state.songs.map((song) => {
-      const imgUrl = song.artwork_url ? song.artwork_url.replace('large', 't300x300') : song.artwork_url;
-      return <li key={song.title}>
-        <div style={{backgroundImage: `url(${imgUrl})`}}
-             className="song-in-list"
-             onClick={ () => this.props.updateCurrentTrack(song) }/>
-        <span>{this.songTitleLimiter(song.title)}</span>
-        <div className="clock-icon"><i className="fa fa-clock-o"
-                                       aria-hidden="true"/> {this.convertSecondsToMinutes(song.duration)}</div>
-        <div className="heart-container">
-          <i className="fa fa-heart-o heart-font" aria-hidden="true"/>
-
-          <div className="dropdown-menu-explore">
-            <h4> Add to Playlist </h4>
-            <button type="button" onClick={ () => this.props.createPlaylist(song, '/playlists')}> Create playlist +
-            </button>
-            <form>
-              <div>
-                <input name="my-songs" id="my-songs" type="checkbox"/>
-                <label htmlFor="my-songs">My songs</label>
-              </div>
-              <div>
-                <input name="cool-trance-music" id="cool-trance-music" type="checkbox"/>
-                <label htmlFor="cool-trance-music">Cool trance music</label>
-              </div>
-              <div>
-                <input name="house-party-2017" id="house-party-2017" type="checkbox"/>
-                <label htmlFor="house-party-2017">House party 2017</label>
-              </div>
-              <div>
-                <input name="old" id="old" type="checkbox"/>
-                <label htmlFor="old">Old</label>
-              </div>
-            </form>
-          </div>
-        </div>
-      </li>
+      return <Song song={song}
+                   songTitleLimiter={this.songTitleLimiter}
+                   convertSecondsToMinutes={this.convertSecondsToMinutes}
+                   {...this.props}
+                   key={song.id}/>
     });
+
 
     return (
       <ul className="songs-list-explore">

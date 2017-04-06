@@ -334,8 +334,8 @@ h4 {
 .dropdown-menu-explore {
   display: flex;
   flex-direction: column;
-  outline: 1px solid red;
-  width: 130px;
+  //outline: 1px solid red;
+  width: 140px;
   height: 110px;
   position: absolute;
   top: 15px;
@@ -344,6 +344,8 @@ h4 {
   background-color: #FFFFFF;
   padding-left: 10px;
   overflow: auto;
+  background: #FFFFFF;
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,0.37);
 }
 
 .dropdown-menu-explore h4 {
@@ -362,9 +364,9 @@ h4 {
   border: none;
   background-color: white;
   cursor: pointer;
-  width: 90px;
+  width: 100px;
   height: 11px;
-  padding: 5px 25px 15px 0;
+  padding: 5px 35px 15px 0;
   border-bottom: 1px solid lightgrey;
   margin-bottom: 10px;
 }
@@ -374,12 +376,27 @@ h4 {
   flex-direction: column;
 }
 
+.dropdown-menu-explore form div {
+  display: flex;
+  vertical-align: middle;
+  padding-bottom: 20px;
+}
+
 .dropdown-menu-explore form input {
   font-size: 0.56rem;
   font-family: Roboto-Regular, sans-serif;
   line-height: 0.75rem;
   color: #4A4A4A;
   margin-bottom: 5px;
+}
+
+.dropdown-menu-explore form label {
+  font-family: Roboto-regular, sans-serif;
+  font-size: 0.7rem;
+  padding-left: 5px;
+  width: 100px;
+  height: 12px;
+  line-height: 12px;
 }
 
 .page-num-wrapper {
@@ -421,6 +438,7 @@ h4 {
   display: flex;
   align-items: center;
   background-color: #FBFBFB;
+  z-index: 20;
 }
 
 .player-display {

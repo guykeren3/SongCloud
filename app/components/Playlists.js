@@ -5,114 +5,65 @@
 import React from 'react';
 import {Link, NavLink} from "react-router-dom";
 
-export default function Playlists() {
-  return (
-    <div className="playlist-page-container">
-      <aside className="playlist-side-bar">
-        <div className="add-playlist-container">
-          <button type="button">Add new playlist</button>
-        </div>
-        <div className="my-songs-container">
+export default class Explore extends React.Component {
+  constructor() {
+    super();
+    // this.songTitleLimiter = this.songTitleLimiter.bind(this);
+    // this.convertSecondsToMinutes = this.convertSecondsToMinutes.bind(this);
 
-          <ul className="my-songs-list-playlist">
-            <li><NavLink to='' activeClassName='selected-list'>My songs </NavLink></li>
-            <li><Link to=''>Cool trance music</Link></li>
-            <li><Link to=''>House party 2017</Link></li>
-            <li><Link to=''>Old</Link></li>
-            <li><Link to=''>Raggae</Link></li>
-          </ul>
-        </div>
-      </aside>
+    this.state = {
 
-      <main className="playlist-wrapper">
+    };
+  }
 
-        <div className="playlist-container">
-          <div className="playlist-titles">
-            My songs <span>8</span>
-            <button type="button">delete</button>
+  render() {
+    console.info(this.props);
+    const playlistArray = this.props.playlist;
+
+    const playlistName = playlistArray[0].name;
+
+    console.info(playlistName);
+
+    console.info(this.props.playlist);
+    return (
+      <div className="playlist-page-container">
+        <aside className="playlist-side-bar">
+          <div className="add-playlist-container">
+            <button type="button">Add new playlist</button>
           </div>
-          <ul className="songs-list-explore-playlist">
-            <li className="song-in-list-playlist"> song </li>
-            <li className="song-in-list-playlist"> song </li>
-            <li className="song-in-list-playlist"> song </li>
-            <li className="song-in-list-playlist"> song </li>
-            <li className="song-in-list-playlist"> song </li>
-            <li className="song-in-list-playlist"> song </li>
-            <li className="song-in-list-playlist"> song </li>
-            <li className="song-in-list-playlist"> song </li>
-          </ul>
+          <div className="my-songs-container">
 
-        </div>
-
-        <div className="playlist-container">
-          <div className="playlist-titles">
-            Cool trance music <span>8</span>
-            <button type="button">delete</button>
+            <ul className="my-songs-list-playlist">
+              <li><NavLink to='' activeClassName='selected-list'>My songs </NavLink></li>
+              <li><Link to=''>Cool trance music</Link></li>
+              <li><Link to=''>House party 2017</Link></li>
+              <li><Link to=''>Old</Link></li>
+              <li><Link to=''>Raggae</Link></li>
+            </ul>
           </div>
-          <ul className="songs-list-explore-playlist">
-            <li className="song-in-list-playlist"> song </li>
-            <li className="song-in-list-playlist"> song </li>
-            <li className="song-in-list-playlist"> song </li>
-            <li className="song-in-list-playlist"> song </li>
-            <li className="song-in-list-playlist"> song </li>
-            <li className="song-in-list-playlist"> song </li>
-            <li className="song-in-list-playlist"> song </li>
-            <li className="song-in-list-playlist"> song </li>
-          </ul>
-        </div>
+        </aside>
 
-        <div className="playlist-container">
-          <div className="playlist-titles">
-            House party 2017 <span>8</span>
-            <button type="button">delete</button>
+        <main className="playlist-wrapper">
+
+          <div className="playlist-container">
+            <div className="playlist-titles">
+              {playlistName} <span>8</span>
+              <button type="button">delete</button>
+            </div>
+            <ul className="songs-list-explore-playlist">
+              <li className="song-in-list-playlist"> song</li>
+              <li className="song-in-list-playlist"> song</li>
+              <li className="song-in-list-playlist"> song</li>
+              <li className="song-in-list-playlist"> song</li>
+              <li className="song-in-list-playlist"> song</li>
+              <li className="song-in-list-playlist"> song</li>
+              <li className="song-in-list-playlist"> song</li>
+              <li className="song-in-list-playlist"> song</li>
+            </ul>
           </div>
-          <ul className="songs-list-explore-playlist">
-            <li className="song-in-list-playlist"> song </li>
-            <li className="song-in-list-playlist"> song </li>
-            <li className="song-in-list-playlist"> song </li>
-            <li className="song-in-list-playlist"> song </li>
-            <li className="song-in-list-playlist"> song </li>
-            <li className="song-in-list-playlist"> song </li>
-            <li className="song-in-list-playlist"> song </li>
-            <li className="song-in-list-playlist"> song </li>
-          </ul>
-        </div>
+        </main>
 
-        <div className="playlist-container">
-          <div className="playlist-titles">
-            Old <span>8</span>
-            <button type="button">delete</button>
-          </div>
-          <ul className="songs-list-explore-playlist">
-            <li className="song-in-list-playlist"> song </li>
-            <li className="song-in-list-playlist"> song </li>
-            <li className="song-in-list-playlist"> song </li>
-            <li className="song-in-list-playlist"> song </li>
-            <li className="song-in-list-playlist"> song </li>
-            <li className="song-in-list-playlist"> song </li>
-            <li className="song-in-list-playlist"> song </li>
-            <li className="song-in-list-playlist"> song </li>
-          </ul>
-        </div>
-
-        <div className="playlist-container">
-          <div className="playlist-titles">
-            Raggae <span>8</span>
-            <button type="button">delete</button>
-          </div>
-          <ul className="songs-list-explore-playlist">
-            <li className="song-in-list-playlist"> song </li>
-            <li className="song-in-list-playlist"> song </li>
-            <li className="song-in-list-playlist"> song </li>
-            <li className="song-in-list-playlist"> song </li>
-            <li className="song-in-list-playlist"> song </li>
-            <li className="song-in-list-playlist"> song </li>
-            <li className="song-in-list-playlist"> song </li>
-            <li className="song-in-list-playlist"> song </li>
-          </ul>
-        </div>
-      </main>
-
-    </div>
-  )
+      </div>
+    )
+  }
 }
