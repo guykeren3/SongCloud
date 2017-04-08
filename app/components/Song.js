@@ -61,7 +61,7 @@ export default class Song extends React.Component {
       </li>
     }
     else {
-      return <div/>
+      return <div className="noSongInListMessage"> Add some songs to this playlist.</div> // if no song, will say - add some in playlist.
     }
   }
 }

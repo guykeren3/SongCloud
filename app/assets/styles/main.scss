@@ -49,6 +49,56 @@ body {
   background-position: 0 0; //changes input line color
 }
 
+//checkbox animation
+
+/* Base for label styling */
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 1.95em;
+  cursor: pointer;
+  width: 120px;
+}
+
+/* checkbox aspect */
+
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width: 1.25em; height: 1.25em;
+  border: 2px solid #ccc;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+}
+/* checked mark aspect */
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  content: '✔';
+  position: absolute;
+  top: .1em; left: .3em;
+  font-size: 1.3em;
+  line-height: 0.8;
+  color: #09ad7e;
+  transition: all .2s;
+}
+/* checked mark aspect changes */
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+
 /*Font strategy*/
 
 h1 {
@@ -127,7 +177,7 @@ h4 {
   vertical-align: middle;
   text-decoration: none;
   color: white;
-  padding: 15px; //effects the bgc size of the link (blue on topbar)
+  padding: 14px; //effects the bgc size of the link (blue on topbar)
 }
 
 .nav-links:hover {
@@ -345,7 +395,7 @@ h4 {
   padding-left: 10px;
   overflow: auto;
   background: #FFFFFF;
-  box-shadow: 0 1px 4px 0 rgba(0,0,0,0.37);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
 }
 
 .dropdown-menu-explore h4 {
@@ -380,6 +430,7 @@ h4 {
   display: flex;
   vertical-align: middle;
   padding-bottom: 20px;
+  width: 120px; // effects div container, combined with label width extends the name in dropdown to enter the window
 }
 
 .dropdown-menu-explore form input {
@@ -547,6 +598,10 @@ h4 {
   width: 100%; //handles input line length
 }
 
+.sign-form input:focus {
+  outline: none;
+}
+
 .handle-btn-location-sign { //had problems centering sign btn, solved with the div flex.
   display: flex;
   justify-content: center;
@@ -592,7 +647,8 @@ a.sign-anchor-if-got-account {
 }
 
 .playlist-container {
-  outline: 1px solid red;
+  //outline: 1px solid red;
+  box-shadow: 0 1px 3px 0 grey; //effects playlist border
 }
 
 .playlist-wrapper .playlist-titles {
@@ -708,4 +764,28 @@ a.sign-anchor-if-got-account {
   color: black;
 }
 
+.title-input {
+  height: 40px;
+  font-size: 1.4rem;
+  font-weight: 400;
+  font-family: Roboto-Light, sans-serif;
+  background: transparent;
+  border: none white;
+  border-bottom: 2px dashed #83A4C5;
+  width: 275px;
+  outline: none;
+  padding: 0;
+  font-style: italic;
+}
 
+.title-input:focus { // removes input default focus border
+  outline: none;
+}
+
+.noSongInListMessage {
+  font-family: Roboto-Medium, sans-serif;
+  font-weight: 500;
+  padding: 50px;
+  margin: 0 auto;
+  font-size: 1.5rem;
+}
