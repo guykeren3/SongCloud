@@ -21,19 +21,14 @@ export default class Playlists extends React.Component {
     });
   }
 
-  createEmptyPlaylist() {
-    console.info('wtfffff');
-    return (
-      <div>here, fuck</div>
-    )
-  }
-
   songTitleLimiter(title) {
-    if (title.length > 30) {
-      return title.slice(0, 29) + '...'
-    }
-    else {
-      return title;
+    if (typeof title !== 'undefined') {
+      if (title.length > 30) {
+        return title.slice(0, 29) + '...'
+      }
+      else {
+        return title;
+      }
     }
   }
 
@@ -51,7 +46,10 @@ export default class Playlists extends React.Component {
       <div className="playlist-page-container">
         <aside className="playlist-side-bar">
           <div className="add-playlist-container">
-            <button type="button" onClick={ () => { this.createEmptyPlaylist() } }>Add new playlist</button>
+            <button type="button" onClick={ () => {
+              this.props.createPlaylist()
+            } }>Add new playlist
+            </button>
           </div>
           <div className="my-songs-container">
 

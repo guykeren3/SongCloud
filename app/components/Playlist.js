@@ -21,17 +21,16 @@ export default class Playlist extends React.Component {
 
   render() {
     const playlist = this.props.playlist;
-    console.info(playlist);
+    // console.info(playlist);
 
     const song = this.props.playlist.songs;
     const imgUrl = song.artwork_url ? song.artwork_url.replace('large', 't300x300') : song.artwork_url;
-
 
     return (
       <div className="playlist-container">
         <div className="playlist-titles">
           {this.props.playlist.name} <span>8</span>
-          <button type="button">delete</button>
+          <button type="button" onClick= { () => { this.props.deletePlaylist() } } >delete</button>
         </div>
         <ul className="songs-list-explore">
           <Song song={song}

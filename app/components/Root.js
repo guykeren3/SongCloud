@@ -1,4 +1,3 @@
-
 // importing react to use JSX
 import React from 'react';
 import uuid from 'uuid';
@@ -29,6 +28,7 @@ export default class Root extends React.Component {
     super();
     this.updateCurrentTrack = this.updateCurrentTrack.bind(this); //hack so we wont use this every time with this function
     this.createPlaylist = this.createPlaylist.bind(this);
+    this.deletePlaylist = this.deletePlaylist.bind(this);
     this.state = {
       currentTrack: {},
       playLists: []
@@ -41,26 +41,48 @@ export default class Root extends React.Component {
     });
   }
 
-  createPlaylist(song, redirectTo) {
-    const newPlaylist = [...this.state.playLists];
-    newPlaylist.push({
-      id: uuid(),
-      name: 'Untitled',
-      songs: song
-    });
-    if (!redirectTo) {
+  deletePlaylist(playlistId) {
+      const newPlaylist = [...this.state.playLists];
+      newPlaylist.pop();
       this.setState({
         playLists: newPlaylist
       });
     }
-    if (redirectTo) {
+
+  createPlaylist(song, redirectTo) {
+    if (typeof song === "undefined" && typeof redirectTo === "undefined") {
+      const newPlaylist = [...this.state.playLists];
+      newPlaylist.push({
+        id: uuid(),
+        name: 'Untitled',
+        songs: ''
+      });
       this.setState({
         playLists: newPlaylist
-      }, () => {
+      });
+    }
 
-        this.props.history.push(redirectTo); // handles url
+    else {
+      const newPlaylist = [...this.state.playLists];
+      newPlaylist.push({
+        id: uuid(),
+        name: 'Untitled',
+        songs: song
+      });
+      if (!redirectTo) {
+        this.setState({
+          playLists: newPlaylist
+        });
+      }
+      if (redirectTo) {
+        this.setState({
+          playLists: newPlaylist
+        }, () => {
 
-      })
+          this.props.history.push(redirectTo); // handles url
+
+        })
+      }
     }
   }
 
@@ -93,9 +115,10 @@ export default class Root extends React.Component {
               }/>
 
             <Route path="/playlists" render={ (props) => {
-            return <Playlists playlists={ this.state.playLists }
-                              createPlaylist={ this.createPlaylist }
-                              {...props}/>
+              return <Playlists playlists={ this.state.playLists }
+                                createPlaylist={ this.createPlaylist }
+                                deletePlaylist= {this.deletePlaylist }
+                                {...props}/>
             } }/>
 
 
