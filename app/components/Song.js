@@ -1,6 +1,3 @@
-/**
- * Created by Guy on 05/04/2017.
- */
 
 import React from "react";
 
@@ -21,6 +18,7 @@ export default class Song extends React.Component {
 
   render() {
     const song = this.props.song;
+    console.info(this.props.song);
     const imgUrl = song.artwork_url ? song.artwork_url.replace('large', 't300x300') : song.artwork_url;
 
     return <li>

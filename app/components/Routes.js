@@ -1,6 +1,3 @@
-/**
- * Created by Guy on 04/04/2017.
- */
 
 import React from 'react';
 import {BrowserRouter, Route, Switch} from "react-router-dom";

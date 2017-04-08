@@ -1,6 +1,3 @@
-/**
- * Created by Guy on 28/03/2017.
- */
 
 // importing react to use JSX
 import React from 'react';
@@ -49,7 +46,7 @@ export default class Root extends React.Component {
     newPlaylist.push({
       id: uuid(),
       name: 'Untitled',
-      song: song
+      songs: song
     });
     if (!redirectTo) {
       this.setState({
@@ -96,7 +93,7 @@ export default class Root extends React.Component {
               }/>
 
             <Route path="/playlists" render={ (props) => {
-            return <Playlists playlist={ this.state.playLists }
+            return <Playlists playlists={ this.state.playLists }
                               createPlaylist={ this.createPlaylist }
                               {...props}/>
             } }/>
