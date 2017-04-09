@@ -1,0 +1,93 @@
+.signup.sign-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.signup .logo-sign-anchor {
+  margin-top: 30px;
+  display: flex; // arranging logo and title in sign papges
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #2196F3;
+}
+
+.signup .scale-sign-logo {
+  font-size: 80px;
+  color: #2196F3;
+}
+
+.signup .logo-sign-anchor h2 {
+  font-size: 2rem;
+  margin-bottom: 0;
+  color: #2196F3;
+}
+
+.signup .sign-form-wrapper {
+  margin-top: 20px;
+  width: 80%; //effects the width of the form and the position
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.signup .sign-form {
+  width: 50%; //effects the width of the form and the position as well
+}
+
+.signup .create-account-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  //padding-right: 200px; //here for signin / out title location
+  margin-top: 20px;
+}
+
+.signup .sign-form label {
+  color: #2196F3;
+}
+
+.signup .sign-form input {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid blue;
+  margin-bottom: 25px;
+  font-size: 1.2rem;
+  width: 100%; //handles input line length
+}
+
+.signup .sign-form input:focus {
+  outline: none;
+}
+
+.signup .handle-btn-location-sign { //had problems centering sign btn, solved with the div flex.
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup .sign-btn {
+  align-items: center;
+  color: white;
+  background-color: #2196F3;
+  border: none;
+  font-weight: bold;
+  width: 100px;
+  height: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+  cursor: pointer;
+  background-size: 0;
+  font-family: Roboto, sans-serif;
+}
+
+.signup a.sign-anchor-if-got-account {
+  text-decoration: none;
+  margin-left: 10px;
+  color: #2196F3;
+}

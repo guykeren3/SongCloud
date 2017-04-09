@@ -1,6 +1,8 @@
+// importing scss
+import './genres.scss'
+
 import React from 'react';
 import {Link, NavLink} from "react-router-dom";
-
 
 export default class GenreChooser extends React.Component {
   constructor() {
@@ -19,7 +21,7 @@ export default class GenreChooser extends React.Component {
     //     return <div>Error!</div>;
     //   case 'loaded':
         return (
-            <nav>
+            <nav className="genre">
               <ul className="category-nav">
                 <li>Generes:</li>
                 <li><Link to=''>all-music</Link></li>

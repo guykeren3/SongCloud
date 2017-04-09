@@ -1,9 +1,11 @@
+// importing scss
+import './explore.scss'
 
 import React from 'react';
 import {Link} from "react-router-dom";
 
-import GenreChooser from './GenreChooser'
-import Song from './Song'
+import GenreChooser from '../genres/GenreChooser'
+import Song from '../song/Song'
 
 export default class Explore extends React.Component {
   constructor() {
@@ -151,11 +153,11 @@ export default class Explore extends React.Component {
             </div>
 
             <div className="page-num-wrapper">
-              <button onClick={ this.prevPage.bind(this) } className="page-btn" disabled={this.state.offset === 0}>
+              <button onClick={ this.prevPage.bind(this) } className="page-btn btn-ripple" disabled={this.state.offset === 0}>
                 Previous
               </button>
               <span>Page { this.state.offset / this.state.limit + 1 }</span>
-              <button onClick={ this.nextPage.bind(this) } className="page-btn">Next</button>
+              <button onClick={ this.nextPage.bind(this) } className="page-btn btn-ripple">Next</button>
             </div>
 
           </div>

@@ -1,0 +1,44 @@
+@import 'assets/styles/colors';
+
+.category-nav {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  width: 100%;
+  list-style: none;
+  margin-top: 0;
+  padding-left: 0;
+  background-color: #DDE4E6;
+}
+
+.category-nav > li {
+  padding: 10px 35px 10px 10px;
+  font-family: Roboto-Light, sans-serif;
+}
+
+.category-nav > li:first-child { //genres bold
+  font-weight: bold;
+}
+
+.category-nav > li a {
+  margin: 0 auto;
+  text-decoration: none;
+  color: black;
+}
+
+//a:link,
+//a:visited {
+//  color: #3d3d3d;
+//  font-weight: 300;
+//}                        love hate example
+//
+//a:focus,
+//a:hover,
+//a:active {
+//  color: #F14848;
+//  outline: none;
+//}
+
+.category-nav > li a:focus { // underlines the link on choice
+  border-bottom: 1px solid black;
+}

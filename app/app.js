@@ -7,7 +7,7 @@ import React from 'react';
 
 // Components
 
-import Routes from './components/Routes';
+import Routes from './components/routes/Routes';
 // importing the component we've created so we can use it in app.js
 
 ReactDOM.render(<Routes/>, document.querySelector('#root'));

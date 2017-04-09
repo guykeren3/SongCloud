@@ -3,10 +3,10 @@ import React from 'react';
 import uuid from 'uuid';
 // importing every component to the root
 
-import Topbar from './Topbar';
-import Explore from './Explore';
-import Playlists from './Playlists';
-import Player from './Player';
+import Topbar from '../topbar/Topbar';
+import Explore from '../explore/Explore';
+import Playlists from '../playlists/Playlists';
+import Player from '../player/Player';
 
 import {
   Redirect,
@@ -54,7 +54,7 @@ export default class Root extends React.Component {
     //create copy of playlists
     const newPlaylists = [...this.state.playLists];
     //find the playlist with the same id in the copy
-    newPlaylist.find((playlist) => {
+    newPlaylists.find((playlist) => {
       if (playlist.id === id) {
         //name of the playlist in the copy = titleName
         playlist.name = titleName;

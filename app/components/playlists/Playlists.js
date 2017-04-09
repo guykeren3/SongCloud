@@ -1,7 +1,12 @@
+// importing scss
+import './playlists.scss'
+
 import React from 'react';
 import {Link, NavLink} from "react-router-dom";
 
-import Playlist from './Playlist'
+import Playlist from '../playlist/Playlist'
+
+
 
 export default class Playlists extends React.Component {
 
@@ -46,7 +51,7 @@ export default class Playlists extends React.Component {
       <div className="playlist-page-container">
         <aside className="playlist-side-bar">
           <div className="add-playlist-container">
-            <button type="button" onClick={ () => {
+            <button type="button" className="btn-ripple" onClick={ () => {
               this.props.createPlaylist()
             } }>Add new playlist
             </button>

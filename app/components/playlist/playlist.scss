@@ -1,0 +1,66 @@
+@import 'assets/styles/colors';
+
+.playlist-container {
+  //outline: 1px solid red;
+  box-shadow: 0 1px 3px 0 grey; //effects playlist border
+}
+
+.playlist-wrapper .playlist-titles {
+  display: flex;
+  flex: 0 0 100%; /* Let it fill the entire space horizontally */
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 64px;
+  box-shadow: 0 1px 3px 0 grey;
+  margin-top: 20px;
+  padding-left: 20px;
+  font-size: 1.38rem;
+  font-family: Roboto-Light, sans-serif;
+  position: relative;
+}
+
+.playlist-wrapper .playlist-titles span {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 120px;
+  background-color: #2196F3;
+  padding: 5px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+
+// delete button on hover on the div which is the title
+
+.playlist-wrapper .playlist-titles button {
+  display: none;
+}
+
+.playlist-wrapper .playlist-titles:hover button {
+  display: initial;
+  font-family: Roboto-Medium, sans-serif;
+  text-transform: capitalize;
+  font-size: 0.81rem;
+  color: #F44336;
+  border: none;
+  background-color: white;
+  background-size: 0;
+  cursor: pointer;
+  padding-right: 50px;
+}
+
+.playlist-wrapper > div > ul > li {
+  list-style: none;
+}
+
+.songs-list-explore-playlist {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-left: 0;
+  width: 100%;
+  height: 100%;
+}

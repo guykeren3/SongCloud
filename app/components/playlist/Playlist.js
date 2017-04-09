@@ -1,7 +1,12 @@
+// importing scss
+import './playlist.scss'
+
 import React from 'react';
 import uuid from 'uuid';
 
-import Song from './Song'
+import Song from '../song/Song'
+
+
 
 export default class Playlist extends React.Component {
 
@@ -34,7 +39,7 @@ export default class Playlist extends React.Component {
     if (this.state.value !== '') {
 
       // updating the info in root
-      
+
       const playlistName = this.state.value;
       const playlistId = this.props.playlist.id;
 

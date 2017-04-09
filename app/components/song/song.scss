@@ -1,0 +1,122 @@
+@import 'assets/styles/colors';
+
+.song-in-list { // songs div background
+  width: 200px;
+  height: 85px;
+  background-repeat: no-repeat;
+  background-position: 50% 30%;
+  background-size: cover;
+}
+
+.clock-icon {
+  height: 20px;
+  width: 50px;
+  position: absolute;
+  bottom: -5px;
+  left: 10px;
+}
+
+.clock-icon i {
+  padding-right: 2px;
+}
+
+.heart-container {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+
+.heart-font {
+  font-size: 14px;
+  color: #D8D8D8;
+  transition: all .2s ease-in-out;
+}
+
+.heart-font:hover {
+  color: #2196F3;
+  transform: scale(1.10);
+}
+
+.heart-font:focus {
+  fill: blue;
+  transform: scale(1.10);
+}
+
+// dropdown menu
+
+.dropdown-menu-explore {
+  display: flex;
+  flex-direction: column;
+  //outline: 1px solid red;
+  width: 140px;
+  height: 110px;
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  z-index: 10;
+  background-color: #FFFFFF;
+  padding-left: 10px;
+  overflow: auto;
+  background: #FFFFFF;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+}
+
+.dropdown-menu-explore h4 {
+  font-size: 0.69rem;
+  font-family: Roboto-Bold, sans-serif;
+  line-height: 0.94rem;
+  margin: 5px 0 0;
+}
+
+.dropdown-menu-explore button {
+  font-size: 0.56rem;
+  font-family: Roboto-Regular, sans-serif;
+  line-height: 0.69rem;
+  color: #2196F3;
+  text-decoration: none;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  width: 100px;
+  height: 11px;
+  padding: 5px 35px 15px 0;
+  border-bottom: 1px solid lightgrey;
+  margin-bottom: 10px;
+}
+
+.dropdown-menu-explore form {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-menu-explore form div {
+  display: flex;
+  vertical-align: middle;
+  padding-bottom: 20px;
+  width: 120px; // effects div container, combined with label width extends the name in dropdown to enter the window
+}
+
+.dropdown-menu-explore form input {
+  font-size: 0.56rem;
+  font-family: Roboto-Regular, sans-serif;
+  line-height: 0.75rem;
+  color: #4A4A4A;
+  margin-bottom: 5px;
+}
+
+.dropdown-menu-explore form label {
+  font-family: Roboto-regular, sans-serif;
+  font-size: 0.7rem;
+  padding-left: 5px;
+  width: 100px;
+  height: 12px;
+  line-height: 12px;
+}
+
+.noSongInListMessage {
+  font-family: Roboto-Medium, sans-serif;
+  font-weight: 500;
+  padding: 50px;
+  margin: 0 auto;
+  font-size: 1.5rem;
+}

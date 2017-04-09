@@ -1,3 +1,5 @@
+// importing scss
+import './player.scss'
 
 import React from 'react';
 

@@ -3,9 +3,9 @@ import React from 'react';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 
 
-import Signup from './Signup';
-import Signin from './Signin';
-import Root from './root';
+import Signup from '../signup/Signup';
+import Signin from '../signin/Signin';
+import Root from '../root/Root';
 
 
 export default function Routes() {

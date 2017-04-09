@@ -1,3 +1,5 @@
+import './song.scss'
+
 import React from "react";
 
 export default class Song extends React.Component {
@@ -22,7 +24,7 @@ export default class Song extends React.Component {
 
 
     if (this.props.song !== '') { // if no song which means we are creating a new playlist an empty div will be rendered else, li will return
-      return <li>
+      return <li className="song-item">
         <div style={{backgroundImage: `url(${imgUrl})`}}
              className="song-in-list"
              onClick={ () => this.props.updateCurrentTrack(song) }/>
