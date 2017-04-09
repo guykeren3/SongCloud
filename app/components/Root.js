@@ -29,6 +29,7 @@ export default class Root extends React.Component {
     this.updateCurrentTrack = this.updateCurrentTrack.bind(this); //hack so we wont use this every time with this function
     this.createPlaylist = this.createPlaylist.bind(this);
     this.deletePlaylist = this.deletePlaylist.bind(this);
+    this.updatePlaylistName = this.updatePlaylistName.bind(this);
     this.state = {
       currentTrack: {},
       playLists: []
@@ -42,12 +43,29 @@ export default class Root extends React.Component {
   }
 
   deletePlaylist(playlistId) {
-      const newPlaylist = [...this.state.playLists];
-      newPlaylist.pop();
+    const newPlaylist = [...this.state.playLists];
+    newPlaylist.pop();
+    this.setState({
+      playLists: newPlaylist
+    });
+  }
+
+  updatePlaylistName(titleName, id) {
+    //create copy of playlists
+    const newPlaylists = [...this.state.playLists];
+    //find the playlist with the same id in the copy
+    newPlaylist.find((playlist) => {
+      if (playlist.id === id) {
+        //name of the playlist in the copy = titleName
+        playlist.name = titleName;
+      }
+      //setState playLists: playlists
       this.setState({
-        playLists: newPlaylist
-      });
-    }
+        playLists: newPlaylists
+      })
+    })
+
+  }
 
   createPlaylist(song, redirectTo) {
     if (typeof song === "undefined" && typeof redirectTo === "undefined") {
@@ -117,7 +135,8 @@ export default class Root extends React.Component {
             <Route path="/playlists" render={ (props) => {
               return <Playlists playlists={ this.state.playLists }
                                 createPlaylist={ this.createPlaylist }
-                                deletePlaylist= {this.deletePlaylist }
+                                deletePlaylist={ this.deletePlaylist }
+                                updatePlaylistName={ this.updatePlaylistName }
                                 {...props}/>
             } }/>
 

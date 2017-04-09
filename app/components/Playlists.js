@@ -54,11 +54,10 @@ export default class Playlists extends React.Component {
           <div className="my-songs-container">
 
             <ul className="my-songs-list-playlist">
-              <li><NavLink to='' activeClassName='selected-list'>My songs </NavLink></li>
-              <li><Link to=''>Cool trance music</Link></li>
-              <li><Link to=''>House party 2017</Link></li>
-              <li><Link to=''>Old</Link></li>
-              <li><Link to=''>Raggae</Link></li>
+              {/*sidebar dynamic playlists*/}
+              {this.props.playlists.map((playlist) => {
+              console.info(playlist.name);
+              return <li key={playlist.id}><Link to={playlist.name}>{playlist.name}</Link></li> } ) }
             </ul>
           </div>
         </aside>

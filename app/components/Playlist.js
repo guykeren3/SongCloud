@@ -32,7 +32,14 @@ export default class Playlist extends React.Component {
     // alert('A name was submitted: ' + this.state.value);
 
     if (this.state.value !== '') {
-      this.props.playlist.name = this.state.value;
+
+      // updating the info in root
+      
+      const playlistName = this.state.value;
+      const playlistId = this.props.playlist.id;
+
+      this.props.updatePlaylistName(playlistName, playlistId)
+
     }
 
     this.setState({isTitleRenamed: false})
@@ -43,6 +50,7 @@ export default class Playlist extends React.Component {
   }
 
   render() {
+
     const playlist = this.props.playlist;
     // console.info(playlist);
 
