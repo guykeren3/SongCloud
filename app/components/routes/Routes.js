@@ -3,8 +3,8 @@ import React from 'react';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 
 
-import Signup from '../signup/Signup';
-import Signin from '../signin/Signin';
+import Signup from '../auth/Signup';
+import Signin from '../auth/Signin';
 import Root from '../root/Root';
 
 

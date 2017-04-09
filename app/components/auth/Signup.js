@@ -1,12 +1,12 @@
 // importing scss
-import './signin.scss'
+import './auth.scss'
 
 import React from 'react';
 import {NavLink} from "react-router-dom";
 
-export default function Signin() {
+export default function Signup() {
   return (
-    <div className="signin sign-wrapper">
+    <div className="auth sign-wrapper">
       <div>
         <NavLink to="/" className="logo-sign-anchor">
           <i className="fa fa-mixcloud scale-sign-logo" aria-hidden="true"/>
@@ -15,16 +15,17 @@ export default function Signin() {
       </div>
       <div className="sign-form-wrapper">
         <form action="/login" method="post" className="sign-form">
-          <h3 className="signin-title">Sign In</h3>
+          <h3 className="create-account-title">Create account</h3>
           <input type="email" required placeholder="Email" className="line-customize"/>
           <input type="password" required placeholder="Password" className="line-customize"/>
           <div className="handle-btn-location-sign">
-            <button type="button" className="sign-btn btn-ripple">continue</button>
+          <button type="button" className="sign-btn btn-ripple">continue</button>
           </div>
         </form>
 
-        <p>Don't have an account yet?
-          <a href="signup" className="sign-anchor-if-got-account">Create Account</a></p>
+
+        <p>Already have an account?
+          <a href="signin" className="sign-anchor-if-got-account">Sign in</a></p>
       </div>
     </div>
   )
