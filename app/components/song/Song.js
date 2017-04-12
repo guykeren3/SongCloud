@@ -2,6 +2,8 @@ import './song.scss'
 
 import React from "react";
 
+import store from '../../store'
+
 export default class Song extends React.Component {
   constructor() {
     super();
@@ -30,6 +32,12 @@ export default class Song extends React.Component {
     }
   }
 
+  updateCurrentTrack(song) {
+    store.dispatch({
+      type: 'UPDATE_CURRENT_TRACK',
+      song: song
+    })
+  }
 
   render() {
     const song = this.props.song;
@@ -41,7 +49,7 @@ export default class Song extends React.Component {
       return <li className="song-item">
         <div style={{backgroundImage: `url(${imgUrl})`}}
              className="song-in-list"
-             onClick={ () => this.props.updateCurrentTrack(song) }/>
+             onClick={ () => this.updateCurrentTrack(song) }/>
         <span>{this.props.songTitleLimiter(song.title)}</span>
         <div className="clock-icon"><i className="fa fa-clock-o" aria-hidden="true"/>
           {this.props.convertSecondsToMinutes(song.duration)}
