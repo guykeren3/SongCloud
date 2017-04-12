@@ -47,7 +47,7 @@ export default class Explore extends React.Component {
   componentDidUpdate(prevProps, prevState) { // fixing the switch between the genres on click
 
     if (prevProps.match.params.genre !== this.props.match.params.genre) {
-      this.setState({offset: 0}, () => {
+      this.setState({offset: 0 , loadingState: 'loading' }, () => {
         this.getSongs();
       });
       console.log('did update');
@@ -92,7 +92,8 @@ export default class Explore extends React.Component {
 
   nextPage() {
     this.setState({
-      offset: this.state.offset + this.state.limit
+      offset: this.state.offset + this.state.limit,
+      loadingState: 'loading'
     });
   }
 

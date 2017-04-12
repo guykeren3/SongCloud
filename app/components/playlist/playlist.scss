@@ -18,37 +18,33 @@
   font-size: 1.38rem;
   font-family: Roboto-Light, sans-serif;
   position: relative;
-}
-
-.playlist-wrapper .playlist-titles span {
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  left: 120px;
-  background-color: #2196F3;
-  padding: 5px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50px;
-}
-
-// delete button on hover on the div which is the title
-
-.playlist-wrapper .playlist-titles button {
-  display: none;
-}
-
-.playlist-wrapper .playlist-titles:hover button {
-  display: initial;
-  font-family: Roboto-Medium, sans-serif;
-  text-transform: capitalize;
-  font-size: 0.81rem;
-  color: #F44336;
-  border: none;
-  background-color: white;
-  background-size: 0;
-  cursor: pointer;
-  padding-right: 50px;
+  & span { // circle with the number of songs in the playlist --- commented out in the playlist - the span number 8
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 120px;
+    background-color: $signPagesBlue;
+    padding: 5px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+  }
+  // delete button on hover on the div which is the title
+  & button {
+    display: none;
+  }
+  &:hover button { // shows delete button on hover on playlist
+    display: initial;
+    font-family: Roboto-Medium, sans-serif;
+    text-transform: capitalize;
+    font-size: 0.81rem;
+    color: #F44336;
+    border: none;
+    background-color: white;
+    background-size: 0;
+    cursor: pointer;
+    padding-right: 50px;
+  }
 }
 
 .playlist-wrapper > div > ul > li {

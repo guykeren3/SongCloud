@@ -1,3 +1,5 @@
+@import 'assets/styles/colors';
+
 .auth.sign-wrapper {
   display: flex;
   justify-content: center;
@@ -11,18 +13,17 @@
   flex-direction: column;
   align-items: center;
   text-decoration: none;
-  color: #2196F3;
+  color: $signPagesBlue;
+  & h2 { // child of the logo-sign-anchor
+    font-size: 2rem;
+    margin-bottom: 0;
+    color: $signPagesBlue;
+  }
 }
 
 .auth .scale-sign-logo {
   font-size: 80px;
-  color: #2196F3;
-}
-
-.auth .logo-sign-anchor h2 {
-  font-size: 2rem;
-  margin-bottom: 0;
-  color: #2196F3;
+  color: $signPagesBlue;
 }
 
 .auth .sign-form-wrapper {
@@ -35,38 +36,42 @@
 
 .auth .sign-form {
   width: 50%; //effects the width of the form and the position as well
+  & label {
+    color: $signPagesBlue;
+  }
+  & input {
+    border: {
+      top: none;
+      left: none;
+      right: none;
+      bottom: 1px solid blue;
+    }
+    margin-bottom: 25px;
+    font-size: 1.2rem;
+
+    width: 100%; //handles input line length
+    &:focus {
+      outline: none;
+    }
+  }
 }
 
 .signin-title {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font: {
+    size: 1.5rem;
+    weight: bold;
+  }
   //padding-right: 290px; //here for signin / out title location
   margin-top: 20px;
 }
 
 .auth .create-account-title {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font: {
+    size: 1.5rem;
+    weight: bold;
+  }
   //padding-right: 200px; //here for signin / out title location
   margin-top: 20px;
-}
-
-.auth .sign-form label {
-  color: #2196F3;
-}
-
-.auth .sign-form input {
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-bottom: 1px solid blue;
-  margin-bottom: 25px;
-  font-size: 1.2rem;
-  width: 100%; //handles input line length
-}
-
-.auth .sign-form input:focus {
-  outline: none;
 }
 
 .auth .handle-btn-location-sign { //had problems centering sign btn, solved with the div flex.
@@ -78,7 +83,7 @@
 .auth .sign-btn {
   align-items: center;
   color: white;
-  background-color: #2196F3;
+  background-color: $signPagesBlue;
   border: none;
   font-weight: bold;
   width: 100px;
@@ -96,5 +101,5 @@
 .auth a.sign-anchor-if-got-account {
   text-decoration: none;
   margin-left: 10px;
-  color: #2196F3;
+  color: $signPagesBlue;
 }

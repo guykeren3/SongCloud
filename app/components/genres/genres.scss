@@ -9,21 +9,21 @@
   margin-top: 0;
   padding-left: 0;
   background-color: #DDE4E6;
-}
-
-.category-nav > li {
-  padding: 10px 35px 10px 10px;
-  font-family: Roboto-Light, sans-serif;
-}
-
-.category-nav > li:first-child { //genres bold
-  font-weight: bold;
-}
-
-.category-nav > li a {
-  margin: 0 auto;
-  text-decoration: none;
-  color: black;
+  & > li {
+    padding: 10px 35px 10px 10px;
+    font-family: Roboto-Light, sans-serif;
+  }
+  & > li:first-child { //genres bold
+    font-weight: bold;
+  }
+  & > li a {
+    margin: 0 auto;
+    text-decoration: none;
+    color: black;
+  }
+  & > li a:focus { // underlines the link on choice
+    border-bottom: 1px solid black;
+  }
 }
 
 //a:link,
@@ -38,7 +38,3 @@
 //  color: #F14848;
 //  outline: none;
 //}
-
-.category-nav > li a:focus { // underlines the link on choice
-  border-bottom: 1px solid black;
-}

@@ -1,3 +1,5 @@
+@import 'assets/styles/colors';
+
 html {
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
@@ -33,20 +35,19 @@ body {
   display: block;
   border: none;
   padding: 10px 0;
-  border-bottom: solid 1px #1abc9c;
+  border-bottom: solid 1px $lightBlue;
   will-change: background-position;
   transition: all .3s cubic-bezier(.64, .09, .08, 1);
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #1abc9c 96%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, $lightBlue 96%);
   background-position: -700px 0; // changes the line that appears on input
   background-size: 100% 100%; // makes the line that appears on input be on all the input because of the 100%
   background-repeat: no-repeat;
-  color: #0e6252;
-}
-
-.line-customize:focus, .line-customize:valid {
-  box-shadow: none;
-  outline: 0;
-  background-position: 0 0; //changes input line color
+  color: $darkBlue;
+  &:focus {
+    box-shadow: none;
+    outline: 0;
+    background-position: 0 0; //changes input line color
+  }
 }
 
 //checkbox animation

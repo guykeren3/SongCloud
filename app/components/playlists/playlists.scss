@@ -8,8 +8,10 @@
 .playlist-wrapper {
   width: 100%;
   // the padding creates a padding inside the main which centeres the children!!!!!
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: {
+    left: 20px;
+    right: 20px;
+  }
 }
 
 .playlist-side-bar {
@@ -26,21 +28,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.add-playlist-container button {
-  color: white;
-  background-color: #2196F3;
-  border-radius: 0.13rem;
-  border: none;
-  font-weight: bold;
-  width: 11.25rem;
-  height: 1.88rem;
-  font-family: Roboto, sans-serif;
-  cursor: pointer;
-  margin: 30px 15px 15px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, .4);
-
+  & button {
+    color: white;
+    background-color: $signPagesBlue;
+    border-radius: 0.13rem;
+    border: none;
+    font-weight: bold;
+    width: 11.25rem;
+    height: 1.88rem;
+    font-family: Roboto, sans-serif;
+    cursor: pointer;
+    margin: 30px 15px 15px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, .4);
+  }
 }
 
 .my-songs-container {
@@ -53,22 +53,22 @@
   font-family: Roboto-Light, sans-serif;
   padding-left: 0; // reset default list padding
   padding-top: 20px;
-}
-
-.my-songs-list-playlist li {
-  padding-bottom: 1.25rem;
-}
-
-.my-songs-list-playlist a { // effects the links
-  text-decoration: none;
-  color: black;
+  & li {
+    padding-bottom: 1.25rem;
+  }
+  & a { // effects the links
+    text-decoration: none;
+    color: black;
+  }
 }
 
 .title-input {
   height: 40px;
-  font-size: 1.4rem;
-  font-weight: 400;
-  font-family: Roboto-Light, sans-serif;
+  font: {
+    size: 1.4rem;
+    weight: 400;
+    family: Roboto-Light, sans-serif;
+  }
   background: transparent;
   border: none white;
   border-bottom: 2px dashed #83A4C5;
@@ -76,9 +76,8 @@
   outline: none;
   padding: 0;
   font-style: italic;
-}
-
-.title-input:focus { // removes input default focus border
-  outline: none;
+  &:focus {
+    outline: none;
+  }
 }
 

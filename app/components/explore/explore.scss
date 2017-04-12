@@ -37,6 +37,20 @@
   justify-content: space-between;
   padding-left: 0;
   width: 100%; //effects song list width
+  & li {
+    border: 1px solid #D8D8D8;
+    width: 220px;
+    height: 140px;
+    margin: 0 65px 20px 10px; //margin right effects the other lines
+    padding: 10px;
+    font-size: 0.69rem;
+    font-family: Roboto-Regular, sans-serif;
+    position: relative;
+    box-shadow: 2px 2px 1px 0 grey;
+  }
+  & li span {
+    line-height: 3;
+  }
 }
 
 .songs-list-explore:after { //fixing last row problem with songs
@@ -44,38 +58,21 @@
   flex: inherit;
 }
 
-.songs-list-explore li {
-  border: 1px solid #D8D8D8;
-  width: 220px;
-  height: 140px;
-  margin: 0 65px 20px 10px; //margin right effects the other lines
-  padding: 10px;
-  font-size: 0.69rem;
-  font-family: Roboto-Regular, sans-serif;
-  position: relative;
-  box-shadow: 2px 2px 1px 0 grey;
-}
-
-.songs-list-explore li span {
-  line-height: 3;
-}
-
 .page-num-wrapper {
   display: flex;
   justify-content: center;
   margin-bottom: 10px;
-}
-
-.page-num-wrapper span {
-  padding-right: 5%;
-  padding-left: 5%;
-  align-self: center;
+  & span {
+    padding-right: 5%;
+    padding-left: 5%;
+    align-self: center;
+  }
 }
 
 .page-btn {
   font-size: 0.8rem;
   color: white;
-  background-color: #2196F3;
+  background-color: $signPagesBlue;
   border: none;
   font-weight: bold;
   width: 100px;

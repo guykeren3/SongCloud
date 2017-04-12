@@ -1,5 +1,6 @@
 @import 'assets/styles/colors';
 
+$fixed-bar-layer-10: 10;
 //Topbar
 
 .top-bar {
@@ -12,11 +13,10 @@
   max-height: 50px;
   padding: 0;
   //height: 50px;
-}
-
-.top-bar h1 {
-  font-size: 1.2rem;
-  margin-left: 15px;
+  & h1 {
+    font-size: 1.2rem;
+    margin-left: 15px;
+  }
 }
 
 //icon of the Topbar
@@ -46,10 +46,9 @@
 .nav-bar > ul {
   //margin-top: 20px;
   list-style: none;
-}
-
-.nav-bar > ul > li {
-  display: inline-block;
+  & > li {
+    display: inline-block;
+  }
 }
 
 .nav-links {
@@ -57,10 +56,9 @@
   text-decoration: none;
   color: white;
   padding: 14px; //effects the bgc size of the link (blue on topbar)
-}
-
-.nav-links:hover {
-  background-color: #1E88E5;
+  &:hover {
+    background-color: #1E88E5;
+  }
 }
 
 // right side topbar
@@ -74,39 +72,38 @@
   color: white;
   position: relative; //for icon position in input
   padding-right: 1%;
-}
-
-.top-bar-right-wrapper > input {
-  font-family: Roboto-Light, sans-serif;
-  border: 1px solid white;
-  border-radius: 10px;
-  height: 20px;
-  width: 250px;
-  margin: 0 5px 0 0;
-  font-size: 0.9rem;
-  color: white;
-  position: relative; // for icon of search
-  background-color: #1E88E5;
-  padding-left: 20px; //effects the location of the text inside!
+  & > input {
+    font: {
+      family: Roboto-Light, sans-serif;
+      size: 0.9rem;
+    }
+    border: 1px solid white;
+    border-radius: 10px;
+    height: 20px;
+    width: 250px;
+    margin: 0 5px 0 0;
+    color: white;
+    position: relative; // for icon of search
+    background-color: #1E88E5;
+    padding-left: 20px; //effects the location of the text inside!
+  }
+  & > i {
+    font-size: 0.8rem;
+    color: white;
+    position: absolute;
+    top: 4px;
+    left: 5px;
+    z-index: $fixed-bar-layer-10; //if not defined hides behind input
+  }
+  & > button {
+    font-family: Roboto-Light, sans-serif;
+    border: none;
+    background-color: #2196F3;
+    color: white;
+    cursor: pointer;
+  }
 }
 
 .search-box::-webkit-input-placeholder { // catches the placeholder
   color: white;
-}
-
-.top-bar-right-wrapper > i {
-  font-size: 0.8rem;
-  color: white;
-  position: absolute;
-  top: 4px;
-  left: 5px;
-  z-index: 10; //if not defined hides behind input
-}
-
-.top-bar-right-wrapper > button {
-  font-family: Roboto-Light, sans-serif;
-  border: none;
-  background-color: #2196F3;
-  color: white;
-  cursor: pointer;
 }

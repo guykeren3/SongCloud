@@ -30,16 +30,14 @@
   font-size: 14px;
   color: #D8D8D8;
   transition: all .2s ease-in-out;
-}
-
-.heart-font:hover {
-  color: #2196F3;
-  transform: scale(1.10);
-}
-
-.heart-font:focus {
-  fill: blue;
-  transform: scale(1.10);
+  &:hover {
+    color: $signPagesBlue;
+    transform: scale(1.10);
+  }
+  &:focus {
+    fill: blue;
+    transform: scale(1.10);
+  }
 }
 
 // dropdown menu
@@ -54,69 +52,73 @@
   top: 15px;
   right: 10px;
   z-index: 10;
-  background-color: #FFFFFF;
   padding-left: 10px;
   overflow: auto;
   background: #FFFFFF;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
-}
-
-.dropdown-menu-explore h4 {
-  font-size: 0.69rem;
-  font-family: Roboto-Bold, sans-serif;
-  line-height: 0.94rem;
-  margin: 5px 0 0;
-}
-
-.dropdown-menu-explore button {
-  font-size: 0.56rem;
-  font-family: Roboto-Regular, sans-serif;
-  line-height: 0.69rem;
-  color: #2196F3;
-  text-decoration: none;
-  border: none;
-  background-color: white;
-  cursor: pointer;
-  width: 100px;
-  height: 11px;
-  padding: 5px 35px 15px 0;
-  border-bottom: 1px solid lightgrey;
-  margin-bottom: 10px;
-}
-
-.dropdown-menu-explore form {
-  display: flex;
-  flex-direction: column;
-}
-
-.dropdown-menu-explore form div {
-  display: flex;
-  vertical-align: middle;
-  padding-bottom: 20px;
-  width: 120px; // effects div container, combined with label width extends the name in dropdown to enter the window
-}
-
-.dropdown-menu-explore form input {
-  font-size: 0.56rem;
-  font-family: Roboto-Regular, sans-serif;
-  line-height: 0.75rem;
-  color: #4A4A4A;
-  margin-bottom: 5px;
-}
-
-.dropdown-menu-explore form label {
-  font-family: Roboto-regular, sans-serif;
-  font-size: 0.7rem;
-  padding-left: 5px;
-  width: 100px;
-  height: 12px;
-  line-height: 12px;
+  & h4 {
+    font: {
+      size: 0.69rem;
+      family: Roboto-Bold, sans-serif;
+    }
+    line-height: 0.94rem;
+    margin: 5px 0 0;
+  }
+  & button {
+    font: {
+      size: 0.56rem;
+      family: Roboto-Regular, sans-serif;
+    }
+    line-height: 0.69rem;
+    color: $signPagesBlue;
+    text-decoration: none;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    width: 100px;
+    height: 11px;
+    padding: 5px 35px 15px 0;
+    border-bottom: 1px solid lightgrey;
+    margin-bottom: 10px;
+  }
+  & form {
+    display: flex;
+    flex-direction: column;
+    //children of the form layers css
+    & div {
+      display: flex;
+      vertical-align: middle;
+      padding-bottom: 20px;
+      width: 120px; // effects div container, combined with label width extends the name in dropdown to enter the window
+    }
+    & input {
+      font: {
+        size: 0.56rem;
+        family: Roboto-Regular, sans-serif;
+      }
+      line-height: 0.75rem;
+      color: #4A4A4A;
+      margin-bottom: 5px;
+    }
+    & label {
+      font: {
+        family: Roboto-regular, sans-serif;
+        size: 0.7rem;
+      }
+      padding-left: 5px;
+      width: 100px;
+      height: 12px;
+      line-height: 12px;
+    }
+  }
 }
 
 .noSongInListMessage {
-  font-family: Roboto-Medium, sans-serif;
-  font-weight: 500;
+  font: {
+    family: Roboto-Medium, sans-serif;
+    weight: 500;
+    size: 1.5rem;
+  }
   padding: 50px;
   margin: 0 auto;
-  font-size: 1.5rem;
 }

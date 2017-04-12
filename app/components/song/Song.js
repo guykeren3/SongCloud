@@ -16,6 +16,20 @@ export default class Song extends React.Component {
     this.setState({isDropdownOpen: dropdownState})
   }
 
+  dropDownPlaylist() {
+    const playlists = this.props.playlists;
+    if (typeof playlists !== "undefined") {
+      return playlists.map((playlist) => {
+        return (
+          <div key={playlist.id}>
+            <input name={playlist.name} id={playlist.name} type="checkbox"/>
+            <label htmlFor={playlist.name}>{playlist.name}</label>
+          </div>
+        )
+      });
+    }
+  }
+
 
   render() {
     const song = this.props.song;
@@ -40,23 +54,25 @@ export default class Song extends React.Component {
               <h4> Add to Playlist </h4>
               <button type="button" onClick={ () => this.props.createPlaylist(song, '/playlists')}> Create playlist +
               </button>
+
               <form>
-                <div>
-                  <input name="my-songs" id="my-songs" type="checkbox"/>
-                  <label htmlFor="my-songs">My songs</label>
-                </div>
-                <div>
-                  <input name="cool-trance-music" id="cool-trance-music" type="checkbox"/>
-                  <label htmlFor="cool-trance-music">Cool trance music</label>
-                </div>
-                <div>
-                  <input name="house-party-2017" id="house-party-2017" type="checkbox"/>
-                  <label htmlFor="house-party-2017">House party 2017</label>
-                </div>
-                <div>
-                  <input name="old" id="old" type="checkbox"/>
-                  <label htmlFor="old">Old</label>
-                </div>
+                { this.dropDownPlaylist() }
+                {/*<div>*/}
+                {/*<input name="my-songs" id="my-songs" type="checkbox"/>*/}
+                {/*<label htmlFor="my-songs">My songs</label>*/}
+                {/*</div>*/}
+                {/*<div>*/}
+                {/*<input name="cool-trance-music" id="cool-trance-music" type="checkbox"/>*/}
+                {/*<label htmlFor="cool-trance-music">Cool trance music</label>*/}
+                {/*</div>*/}
+                {/*<div>*/}
+                {/*<input name="house-party-2017" id="house-party-2017" type="checkbox"/>*/}
+                {/*<label htmlFor="house-party-2017">House party 2017</label>*/}
+                {/*</div>*/}
+                {/*<div>*/}
+                {/*<input name="old" id="old" type="checkbox"/>*/}
+                {/*<label htmlFor="old">Old</label>*/}
+                {/*</div>*/}
               </form>
             </div> ) }
         </div>

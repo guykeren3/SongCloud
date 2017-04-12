@@ -1,7 +1,5 @@
 @import 'assets/styles/colors';
 
-// player
-
 .player-container {
   position: fixed;
   bottom: 0;
@@ -19,34 +17,31 @@
   justify-content: center;
   width: 100%;
   align-items: center;
-}
-
-.player-display audio {
-  display: flex;
-  justify-content: center;
-  width: 50%;
-  align-items: center;
+  & audio {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    align-items: center;
+  }
 }
 
 .thumbnail-info {
   display: flex;
   width: 0;
   position: relative;
-}
-
-.thumbnail-info div {
-  position: absolute;
-  top: -20px;
-  left: 20px;
-  width: 50px;
-  height: 40px;
-}
-
-.thumbnail-info span {
-  position: absolute;
-  top: -5px;
-  left: 80px;
-  width: 200px;
-  font-size: 0.69rem;
-  font-family: Roboto-Regular, sans-serif;
+  & div {
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    width: 50px;
+    height: 40px;
+  }
+  & span {
+    position: absolute;
+    top: -5px;
+    left: 80px;
+    width: 200px;
+    font-size: 0.69rem;
+    font-family: Roboto-Regular, sans-serif;
+  }
 }
