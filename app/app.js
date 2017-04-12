@@ -10,4 +10,17 @@ import React from 'react';
 import Routes from './components/routes/Routes';
 // importing the component we've created so we can use it in app.js
 
-ReactDOM.render(<Routes/>, document.querySelector('#root'));
+import store from './store';
+
+function renderApp() {
+  ReactDOM.render(
+    <Routes />,
+    document.querySelector('#root')
+  );
+}
+
+renderApp();
+
+store.subscribe( () => {
+  renderApp();
+});
