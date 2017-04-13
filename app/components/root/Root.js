@@ -26,20 +26,13 @@ import {
 export default class Root extends React.Component {
   constructor() {
     super();
-    this.updateCurrentTrack = this.updateCurrentTrack.bind(this); //hack so we wont use this every time with this function
-    this.createPlaylist = this.createPlaylist.bind(this);
+    this.createPlaylist = this.createPlaylist.bind(this); //hack so we wont use this every time with this function
     this.deletePlaylist = this.deletePlaylist.bind(this);
     this.updatePlaylistName = this.updatePlaylistName.bind(this);
     this.state = {
       currentTrack: {},
       playLists: []
     };
-  }
-
-  updateCurrentTrack(newSong) {
-    this.setState({
-      currentTrack: Object.assign({}, newSong)
-    });
   }
 
   deletePlaylist(playlistId) {
@@ -119,8 +112,7 @@ export default class Root extends React.Component {
             {/*App routes*/}
 
             <Route path="/explore/:genre" render={ (props) => {
-              return <Explore updateCurrentTrack={ this.updateCurrentTrack }
-                              createPlaylist={ this.createPlaylist }
+              return <Explore createPlaylist={ this.createPlaylist }
                               {...props}/>
             } }/>
 
@@ -145,7 +137,7 @@ export default class Root extends React.Component {
 
         </main>
 
-        <Player track={ this.state.currentTrack }/>
+        <Player />
 
       </div>
     )

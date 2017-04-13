@@ -2,14 +2,13 @@
 import './player.scss'
 
 import React from 'react';
+import {connect} from 'react-redux';
 
-import store from '../../store'
+function Player(props) {
 
+  console.info(props.currentTrack);
 
-export default function Player() {
-
-  const storeData = store.getState();
-  const song = storeData.currentTrack;
+  const song = props.currentTrack;
 
   if (!song) {
     return <div className="player-shifted"/>
@@ -35,4 +34,13 @@ export default function Player() {
   )
 }
 
+function mapStateToProps(stateData) { //this will bring me the entire data of store ( the reducers ) and will return keys on the props, and the props will be available only on the current component
+  return {
+    currentTrack: stateData.currentTrack
+  }
+}
+
+// because the props is being transferred to the component we need to add it to the main function("props") unless it's a class.
+
+export default connect(mapStateToProps)(Player);
 

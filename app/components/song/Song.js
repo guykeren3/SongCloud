@@ -1,10 +1,9 @@
 import './song.scss'
 
 import React from "react";
+import {connect} from 'react-redux';
 
-import store from '../../store'
-
-export default class Song extends React.Component {
+class Song extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -32,13 +31,6 @@ export default class Song extends React.Component {
     }
   }
 
-  updateCurrentTrack(song) {
-    store.dispatch({
-      type: 'UPDATE_CURRENT_TRACK',
-      song: song
-    })
-  }
-
   render() {
     const song = this.props.song;
     // console.info(this.props.song);
@@ -49,7 +41,7 @@ export default class Song extends React.Component {
       return <li className="song-item">
         <div style={{backgroundImage: `url(${imgUrl})`}}
              className="song-in-list"
-             onClick={ () => this.updateCurrentTrack(song) }/>
+             onClick={ () => this.props.updateCurrentTrack(song) }/>
         <span>{this.props.songTitleLimiter(song.title)}</span>
         <div className="clock-icon"><i className="fa fa-clock-o" aria-hidden="true"/>
           {this.props.convertSecondsToMinutes(song.duration)}
@@ -91,3 +83,16 @@ export default class Song extends React.Component {
     }
   }
 }
+
+function mapDispatchToProps(dispatch) {
+  return {
+    updateCurrentTrack(song) {
+      dispatch({
+        type: 'UPDATE_CURRENT_TRACK',
+        song: song
+      })
+    }
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Song);
