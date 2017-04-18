@@ -113,7 +113,8 @@ export default class Root extends React.Component {
 
             <Route path="/explore/:genre" render={ (props) => {
               return <Explore createPlaylist={ this.createPlaylist }
-                              {...props}/>
+                              playlists={ this.state.playLists }
+                              {...props}/> // to transfer the history from "Route"
             } }/>
 
             <Route
@@ -129,7 +130,7 @@ export default class Root extends React.Component {
                                 createPlaylist={ this.createPlaylist }
                                 deletePlaylist={ this.deletePlaylist }
                                 updatePlaylistName={ this.updatePlaylistName }
-                                {...props}/>
+                                {...props}/> // to transfer the history from "Route"
             } }/>
 
 
