@@ -87,12 +87,12 @@ $fixed-bar-layer-10: 10;
     background-color: #1E88E5;
     padding-left: 20px; //effects the location of the text inside!
   }
-  & > i {
+  & > button > i {
     font-size: 0.8rem;
     color: white;
     position: absolute;
-    top: 4px;
-    left: 5px;
+    top: 5px;
+    left: 18px;
     z-index: $fixed-bar-layer-10; //if not defined hides behind input
   }
   & > button {

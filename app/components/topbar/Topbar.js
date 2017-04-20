@@ -4,9 +4,10 @@ import './topbar.scss'
 import React from 'react';
 
 
-
 import
-{NavLink} from 'react-router-dom';
+{
+  NavLink
+} from 'react-router-dom';
 
 export default function Topbar() {
   return (
@@ -24,7 +25,7 @@ export default function Topbar() {
         </nav>
       </div>
       <div className="top-bar-right-wrapper">
-        <i className="fa fa-search" aria-hidden="true"/>
+        <button><i className="fa fa-search" aria-hidden="true"/></button>
         <input type="text" placeholder="SEARCH" className="search-box"/>
         <button type="button"> Logout</button>
       </div>
@@ -34,13 +35,4 @@ export default function Topbar() {
   )
 }
 
-{/*<header class="container--baseline">*/
-}
-{/*<h1 class="m--1 g--4">Navigation</h1>*/
-}
-{/*<nav class="g--3 nav--horizontal">*/
-}
-{/*<ul>*/
-}
-{/*<li><a href="http://www.google.com">Nav link</a></li>*/
-}
+

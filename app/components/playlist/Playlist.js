@@ -7,7 +7,6 @@ import uuid from 'uuid';
 import Song from '../song/Song'
 
 
-
 export default class Playlist extends React.Component {
 
   constructor() {
@@ -64,8 +63,7 @@ export default class Playlist extends React.Component {
     </form>
       : this.props.playlist.name;
 
-    const song = this.props.playlist.songs;
-    const imgUrl = song.artwork_url ? song.artwork_url.replace('large', 't300x300') : song.artwork_url;
+    //const song = this.props.playlist.songs[0];
 
     //using this.props.deletePlaylist which is passed from root so when click on delete will update the root state playlist array.
     return (
@@ -82,10 +80,15 @@ export default class Playlist extends React.Component {
           </button>
         </div>
         <ul className="songs-list-explore">
-          <Song song={song}
-                imgUrl={imgUrl}
-                {...this.props}
-          />
+          {this.props.playlist.songs.map(song => {
+            const imgUrl = song.artwork_url ? song.artwork_url.replace('large', 't300x300') : song.artwork_url;
+            return <Song song={song}
+                         imgUrl={imgUrl}
+                         {...this.props}
+                         key={song.id}
+            />
+          })}
+
         </ul>
       </div>
     )

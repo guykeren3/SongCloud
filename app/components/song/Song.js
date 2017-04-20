@@ -19,15 +19,32 @@ class Song extends React.Component {
     this.setState({isDropdownOpen: dropdownState});
   }
 
-  dropDownPlaylist() {
+
+  // should put the two lines on the input in dropDownPlaylist
+  /* onChange={this.playlistChecked}*/
+  /* checked={ () => this.isPlaylistChecked(playlist) }/> */
+
+  dropDownPlaylist(song) {
     const playlists = this.props.playlists;
     console.info(this.props.playlists);
+
     if (typeof playlists !== "undefined") {
       return playlists.map((playlist) => {
+        // console.info('songs', playlist.songs);
+        const isSongInPlaylist = !playlist.songs ? false : // if false, false which means it wont do anything after
+          playlist.songs.find((songInPlaylist) => {
+            if (songInPlaylist.id === song.id) {
+              return songInPlaylist
+            }
+          });
+
+        console.info(isSongInPlaylist, 'found one!!!');
         // console.info(playlists);
         return (
           <div key={playlist.id}>
-            <input name={playlist.name} id={playlist.name} type="checkbox"/>
+            <input name={playlist.name} id={playlist.name} type="checkbox"
+                   onChange={() => this.props.addSongToPlaylist(song, playlist)}
+                   checked={isSongInPlaylist}/>
             <label htmlFor={playlist.name}>{playlist.name}</label>
           </div>
         )
@@ -38,11 +55,10 @@ class Song extends React.Component {
 
   render() {
     const song = this.props.song;
-    // console.info(this.props.song);
     const imgUrl = song.artwork_url ? song.artwork_url.replace('large', 't300x300') : song.artwork_url;
 
 
-    if (this.props.song !== '') { // if no song which means we are creating a new playlist an empty div will be rendered else, li will return
+    if (this.props.song !== []) { // if no song which means we are creating a new playlist an empty div will be rendered else, li will return
       return <li className="song-item">
         <div style={{backgroundImage: `url(${imgUrl})`}}
              className="song-in-list"
@@ -61,7 +77,7 @@ class Song extends React.Component {
               </button>
 
               <form>
-                { this.dropDownPlaylist() }
+                { this.dropDownPlaylist(song) }
               </form>
             </div> ) }
         </div>

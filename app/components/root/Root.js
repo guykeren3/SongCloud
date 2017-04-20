@@ -29,6 +29,7 @@ export default class Root extends React.Component {
     this.createPlaylist = this.createPlaylist.bind(this); //hack so we wont use this every time with this function
     this.deletePlaylist = this.deletePlaylist.bind(this);
     this.updatePlaylistName = this.updatePlaylistName.bind(this);
+    this.addSongToPlaylist = this.addSongToPlaylist.bind(this);
     this.state = {
       currentTrack: {},
       playLists: []
@@ -57,7 +58,6 @@ export default class Root extends React.Component {
         playLists: newPlaylists
       })
     })
-
   }
 
   createPlaylist(song, redirectTo) {
@@ -66,7 +66,7 @@ export default class Root extends React.Component {
       newPlaylist.push({
         id: uuid(),
         name: 'Untitled',
-        songs: ''
+        songs: []
       });
       this.setState({
         playLists: newPlaylist
@@ -78,7 +78,7 @@ export default class Root extends React.Component {
       newPlaylist.push({
         id: uuid(),
         name: 'Untitled',
-        songs: song
+        songs: [song]
       });
       if (!redirectTo) {
         this.setState({
@@ -97,6 +97,16 @@ export default class Root extends React.Component {
     }
   }
 
+  addSongToPlaylist(song, playlist) {
+    const playlists = this.state.playLists;
+    playlists.map(playlistInPlaylistsData => {               // bad practise
+      if(playlistInPlaylistsData.id === playlist.id) {
+        playlist.songs.push(song);
+      }
+    });
+    this.setState({playLists: playlists})
+  }
+
   render() {
 
     return (
@@ -109,11 +119,10 @@ export default class Root extends React.Component {
               return <Redirect to="/explore"/>;
             }}/>
 
-            {/*App routes*/}
-
             <Route path="/explore/:genre" render={ (props) => {
               return <Explore createPlaylist={ this.createPlaylist }
                               playlists={ this.state.playLists }
+                              addSongToPlaylist={ this.addSongToPlaylist }
                               {...props}/> // to transfer the history from "Route"
             } }/>
 
@@ -130,6 +139,7 @@ export default class Root extends React.Component {
                                 createPlaylist={ this.createPlaylist }
                                 deletePlaylist={ this.deletePlaylist }
                                 updatePlaylistName={ this.updatePlaylistName }
+                                addSongToPlaylist={ this.addSongToPlaylist }
                                 {...props}/> // to transfer the history from "Route"
             } }/>
 
