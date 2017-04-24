@@ -119,27 +119,27 @@ export default class Root extends React.Component {
               return <Redirect to="/explore"/>;
             }}/>
 
-            <Route
-              exact path="/explore" component={() => {
-              return <Redirect to="/explore/dubstep"/>;
-            }
-            }/>
-
             <Route path="/explore/:genre" render={ (props) => {
-              return <Explore
-                           // createPlaylist={ this.createPlaylist }
-                           //    playlists={ this.state.playLists }
-                           //    addSongToPlaylist={ this.addSongToPlaylist }
+              return <Explore createPlaylist={ this.createPlaylist }
+                              playlists={ this.state.playLists }
+                              addSongToPlaylist={ this.addSongToPlaylist }
                               {...props}/> // to transfer the history from "Route"
             } }/>
 
+            <Route
+              exact
+              path="/explore"
+              component={() => {
+                return <Redirect to="/explore/dubstep"/>;
+              }
+              }/>
+
             <Route path="/playlists" render={ (props) => {
-              return <Playlists
-                                // playlists={ this.state.playLists }
-                                // createPlaylist={ this.createPlaylist }
-                                // deletePlaylist={ this.deletePlaylist }
-                                // updatePlaylistName={ this.updatePlaylistName }
-                                // addSongToPlaylist={ this.addSongToPlaylist }
+              return <Playlists playlists={ this.state.playLists }
+                                createPlaylist={ this.createPlaylist }
+                                deletePlaylist={ this.deletePlaylist }
+                                updatePlaylistName={ this.updatePlaylistName }
+                                addSongToPlaylist={ this.addSongToPlaylist }
                                 {...props}/> // to transfer the history from "Route"
             } }/>
 
