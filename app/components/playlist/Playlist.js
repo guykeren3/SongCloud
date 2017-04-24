@@ -79,16 +79,19 @@ export default class Playlist extends React.Component {
           } }>delete
           </button>
         </div>
-        <ul className="songs-list-explore">
-          {this.props.playlist.songs.map(song => {
-            const imgUrl = song.artwork_url ? song.artwork_url.replace('large', 't300x300') : song.artwork_url;
-            return <Song song={song}
-                         imgUrl={imgUrl}
-                         {...this.props}
-                         key={song.id}
-            />
-          })}
-
+        <ul className={this.props.playlist.songs.length > 0 ? "songs-list-explore" : "song-list-explore-no-flex-fix-last-row"}>
+          {console.info(this.props.playlist)}
+          {this.props.playlist.songs.length > 0 ?
+            this.props.playlist.songs.map(song => {
+              const imgUrl = song.artwork_url ? song.artwork_url.replace('large', 't300x300') : song.artwork_url;
+              return <Song song={song}
+                           imgUrl={imgUrl}
+                           {...this.props}
+                           key={song.id}
+              />
+            }) :
+            <div className="noSongInListMessage"> Add some songs to this playlist.</div>
+          }
         </ul>
       </div>
     )
