@@ -55,7 +55,7 @@
 
 .songs-list-explore:after { //fixing last row problem with songs
   content: "";
-  width: 292px;
+  flex: inherit;
 }
 
 .page-num-wrapper {
