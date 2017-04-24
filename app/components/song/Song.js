@@ -7,6 +7,8 @@ class Song extends React.Component {
   constructor() {
     super();
     this.dropDownPlaylist = this.dropDownPlaylist.bind(this);
+    this.convertSecondsToMinutes = this.convertSecondsToMinutes.bind(this);
+    this.songTitleLimiter = this.songTitleLimiter.bind(this);
 
     this.state = {
       isDropdownOpen: false
@@ -17,6 +19,24 @@ class Song extends React.Component {
     let dropdownState = !this.state.isDropdownOpen;
 
     this.setState({isDropdownOpen: dropdownState});
+  }
+
+  // turning the miliseconds of the songs to minutes
+  convertSecondsToMinutes(songDuration) {
+    const minutes = Math.floor(parseInt(songDuration) / 60000);
+    const seconds = ((parseInt(songDuration % 60000) / 1000).toFixed(0));
+    const duration = (seconds === 60 ? (minutes + 1) + ":00" : minutes + ":" + (seconds < 10 ? "0" : "") + seconds);
+
+    return duration
+  }
+
+  songTitleLimiter(title) {
+    if (title.length > 30) {
+      return title.slice(0, 29) + '...'
+    }
+    else {
+      return title;
+    }
   }
 
 
@@ -63,9 +83,9 @@ class Song extends React.Component {
         <div style={{backgroundImage: `url(${imgUrl})`}}
              className="song-in-list"
              onClick={ () => this.props.updateCurrentTrack(song) }/>
-        <span>{this.props.songTitleLimiter(song.title)}</span>
+        <span>{this.songTitleLimiter(song.title)}</span>
         <div className="clock-icon"><i className="fa fa-clock-o" aria-hidden="true"/>
-          {this.props.convertSecondsToMinutes(song.duration)}
+          {this.convertSecondsToMinutes(song.duration)}
         </div>
         <div className="heart-container">
           <i className="fa fa-heart-o heart-font" aria-hidden="true" onClick={ () => this.dropDownToggle() }/>
@@ -100,4 +120,10 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(null, mapDispatchToProps)(Song);
+function mapStateToProps(stateData) { //this will bring me the entire data of store ( the reducers ) and will return keys on the props, and the props will be available only on the current component
+  return {
+    playlists: stateData.playlists
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Song);

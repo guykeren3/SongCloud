@@ -5,15 +5,15 @@ import React from 'react';
 import {Link, NavLink} from "react-router-dom";
 
 import Playlist from '../playlist/Playlist'
+import {connect} from 'react-redux';
 
 
 
-export default class Playlists extends React.Component {
+
+class Playlists extends React.Component {
 
   constructor() {
     super();
-    this.songTitleLimiter = this.songTitleLimiter.bind(this);
-    this.convertSecondsToMinutes = this.convertSecondsToMinutes.bind(this);
   }
 
   createPlaylists() {
@@ -24,25 +24,6 @@ export default class Playlists extends React.Component {
                        {...this.props}
                        key={playlist.id}/>
     });
-  }
-
-  songTitleLimiter(title) {
-    if (typeof title !== 'undefined') {
-      if (title.length > 30) {
-        return title.slice(0, 29) + '...'
-      }
-      else {
-        return title;
-      }
-    }
-  }
-
-  convertSecondsToMinutes(songDuration) {
-    const minutes = Math.floor(parseInt(songDuration) / 60000);
-    const seconds = ((parseInt(songDuration % 60000) / 1000).toFixed(0));
-    const duration = (seconds === 60 ? (minutes + 1) + ":00" : minutes + ":" + (seconds < 10 ? "0" : "") + seconds);
-
-    return duration
   }
 
 
@@ -77,3 +58,13 @@ export default class Playlists extends React.Component {
     )
   }
 }
+
+function mapStateToProps(stateData) { //this will bring me the entire data of store ( the reducers ) and will return keys on the props, and the props will be available only on the current component
+  return {
+    playlists: stateData.playlists
+  }
+}
+
+// because the props is being transferred to the component we need to add it to the main function("props") unless it's a class.
+
+export default connect(mapStateToProps)(Playlists);

@@ -1,19 +1,23 @@
 import { createStore, combineReducers } from 'redux';
 
-// import counterReducer from './reducers/counter';
-// import playlistsReducer from './reducers/playlists';
-import currentTrackReducer from './reducers/current-track';
+import playlists from './reducers/playlists';
+import currentTrack from './reducers/current-track';
 
-function reducer(currentState = {}, action) { // if currentState will be undefined it will be object
-  console.log('reducer', currentState, action);
-
-  return Object.assign({}, {
-    // counter: counterReducer(currentState.counter, action),
-    // playlists: playlistsReducer(currentState.playlists, action),
-    currentTrack: currentTrackReducer(currentState.currentTrack, action)
-  });
-}
+const reducer = combineReducers({
+  currentTrack,
+  playlists
+});
 
 const store = createStore(reducer);
+
+// const xhr = new XMLHttpRequest();
+// xhr.open('GET', `http://localhost:3000/playlists`);
+// xhr.addEventListener('load', () => {
+//   store.dispatch({
+//     type: 'GET_XHR_PLAYLISTS',
+//     serverPlaylists: JSON.parse(xhr.responseText)
+//   });
+// });
+// xhr.send();
 
 export default store;

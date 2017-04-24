@@ -10,8 +10,6 @@ import Song from '../song/Song'
 export default class Explore extends React.Component {
   constructor() {
     super();
-    this.songTitleLimiter = this.songTitleLimiter.bind(this);
-    this.convertSecondsToMinutes = this.convertSecondsToMinutes.bind(this);
 
     this.state = {
       songs: [],
@@ -56,15 +54,6 @@ export default class Explore extends React.Component {
     if (prevState.offset !== this.state.offset) {
       this.getSongs();
     }
-  }
-
-  // turning the miliseconds of the songs to minutes
-  convertSecondsToMinutes(songDuration) {
-    const minutes = Math.floor(parseInt(songDuration) / 60000);
-    const seconds = ((parseInt(songDuration % 60000) / 1000).toFixed(0));
-    const duration = (seconds === 60 ? (minutes + 1) + ":00" : minutes + ":" + (seconds < 10 ? "0" : "") + seconds);
-
-    return duration
   }
 
   createSongs() {
@@ -116,17 +105,6 @@ export default class Explore extends React.Component {
 // }} onClick={() => {
 //   this.addToPlaylistMnu()
 // }}>
-
-
-  songTitleLimiter(title) {
-    if (title.length > 30) {
-      return title.slice(0, 29) + '...'
-    }
-    else {
-      return title;
-    }
-  }
-
 
   render() {
     switch (this.state.loadingState) {
