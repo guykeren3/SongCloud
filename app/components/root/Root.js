@@ -111,7 +111,7 @@ export default class Root extends React.Component {
 
     return (
       <div className="root-wrapper">
-        <Topbar/>
+        <Topbar history = {this.props.history} />
 
         <main>
           <Switch>
