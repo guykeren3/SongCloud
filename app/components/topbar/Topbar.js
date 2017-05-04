@@ -20,7 +20,7 @@ export default class Topbar extends React.Component {
     let mySearch = this.search.value;
     this.props.history.push(`/explore/${mySearch}?search=true`);
   }
-  
+
   render() {
     return (
       <header className="top-bar">
@@ -42,8 +42,6 @@ export default class Topbar extends React.Component {
                  ref={(searchValue) => this.search = searchValue}/>
           <button type="button"> Logout</button>
         </form>
-
-
       </header>
     )
   }

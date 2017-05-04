@@ -34,23 +34,20 @@ class Song extends React.Component {
         const isSongInPlaylist = !playlist.songs ? false : // if false, false which means it wont do anything after
           playlist.songs.find((songInPlaylist) => {
             if (songInPlaylist.id === song.id) {
-              return songInPlaylist
+              return songInPlaylist;
             }
           });
 
-        console.info(isSongInPlaylist, 'found one!!!');
-        // console.info(playlists);
         return (
           <div key={playlist.id}>
             <input name={playlist.name} id={playlist.name} type="checkbox"
-                   onChange={() => this.props.addSongToPlaylist(song, playlist)}
+                   onChange={(ev) => ev.target.checked ? this.props.addSongToPlaylist(song, playlist) : this.props.removeSongFromPlaylist(song, playlist)}
                    checked={isSongInPlaylist}/>
             <label htmlFor={playlist.name}>{playlist.name}</label>
           </div>
         )
       });
     }
-    // console.info(playlists);
   }
 
   render() {

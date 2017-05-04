@@ -30,6 +30,7 @@ export default class Root extends React.Component {
     this.deletePlaylist = this.deletePlaylist.bind(this);
     this.updatePlaylistName = this.updatePlaylistName.bind(this);
     this.addSongToPlaylist = this.addSongToPlaylist.bind(this);
+    this.removeSongFromPlaylist = this.removeSongFromPlaylist.bind(this);
     this.state = {
       currentTrack: {},
       playLists: []
@@ -105,13 +106,24 @@ export default class Root extends React.Component {
 
   addSongToPlaylist(song, playlist) {
     const playlists = this.state.playLists;
-    playlists.map(playlistInPlaylistsData => {               // bad practise
+    playlists.map(playlistInPlaylistsData => {
       if (playlistInPlaylistsData.id === playlist.id) {
         playlist.songs.push(song);
       }
     });
     this.setState({playLists: playlists})
   }
+
+  removeSongFromPlaylist(song, playlist) {
+    const playlists = this.state.playLists;
+    playlists.map(playlistInPlaylistsData => {
+      if (playlistInPlaylistsData.id === playlist.id) {
+        playlist.songs.pop();
+      }
+    });
+    this.setState({playLists: playlists})
+  }
+
 
   render() {
 
@@ -129,6 +141,7 @@ export default class Root extends React.Component {
               return <Explore createPlaylist={ this.createPlaylist }
                               playlists={ this.state.playLists }
                               addSongToPlaylist={ this.addSongToPlaylist }
+                              removeSongFromPlaylist={ this.removeSongFromPlaylist }
                               {...props}/> // to transfer the history from "Route"
             } }/>
 
