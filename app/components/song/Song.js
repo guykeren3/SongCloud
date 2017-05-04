@@ -19,11 +19,6 @@ class Song extends React.Component {
     this.setState({isDropdownOpen: dropdownState});
   }
 
-
-  // should put the two lines on the input in dropDownPlaylist
-  /* onChange={this.playlistChecked}*/
-  /* checked={ () => this.isPlaylistChecked(playlist) }/> */
-
   dropDownPlaylist(song) {
     const playlists = this.props.playlists;
     console.info(this.props.playlists);
@@ -41,7 +36,8 @@ class Song extends React.Component {
         return (
           <div key={playlist.id}>
             <input name={playlist.name} id={playlist.name} type="checkbox"
-                   onChange={(ev) => ev.target.checked ? this.props.addSongToPlaylist(song, playlist) : this.props.removeSongFromPlaylist(song, playlist)}
+                   onChange={(ev) => ev.target.checked ? this.props.addSongToPlaylist(song, playlist) :
+                     this.props.removeSongFromPlaylist(song, playlist)}
                    checked={isSongInPlaylist}/>
             <label htmlFor={playlist.name}>{playlist.name}</label>
           </div>

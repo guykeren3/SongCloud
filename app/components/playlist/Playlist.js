@@ -65,9 +65,6 @@ export default class Playlist extends React.Component {
     </form>
       : this.props.playlist.name;
 
-    //const song = this.props.playlist.songs[0];
-
-    //using this.props.deletePlaylist which is passed from root so when click on delete will update the root state playlist array.
     return (
       <div className="playlist-container">
         <div className="playlist-titles">

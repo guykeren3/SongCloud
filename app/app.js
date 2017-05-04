@@ -22,13 +22,6 @@ ReactDOM.render(
   document.querySelector('#root')
 );
 
-// renderApp();
-//
-// store.subscribe( () => {
-//   renderApp();
-// });
-
-
 // sending props down the components
 // creating state in constructor and changing it using this.setState()
 // handling events using functions.

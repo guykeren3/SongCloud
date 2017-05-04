@@ -1,7 +1,6 @@
-// importing react to use JSX
 import React from 'react';
 import uuid from 'uuid';
-// importing every component to the root
+
 
 import Topbar from '../topbar/Topbar';
 import Explore from '../explore/Explore';
@@ -13,15 +12,6 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
-
-
-// creating an object to later move to the component as argument or in case of a smart component it will be saved in props in React.Component
-// and will be accessed through this.props.
-
-
-// convention among real life programmers, a component that will hold all other components and then run the one component that will only.
-
-// everything that will be written under greeting will be an object with properties and values.
 
 export default class Root extends React.Component {
   constructor() {
@@ -52,15 +42,11 @@ export default class Root extends React.Component {
   }
 
   updatePlaylistName(titleName, id) {
-    //create copy of playlists
     const newPlaylists = [...this.state.playLists];
-    //find the playlist with the same id in the copy
     newPlaylists.find((playlist) => {
       if (playlist.id === id) {
-        //name of the playlist in the copy = titleName
         playlist.name = titleName;
       }
-      //setState playLists: playlists
       this.setState({
         playLists: newPlaylists
       })
@@ -124,7 +110,6 @@ export default class Root extends React.Component {
     this.setState({playLists: playlists})
   }
 
-
   render() {
 
     return (
@@ -146,12 +131,10 @@ export default class Root extends React.Component {
             } }/>
 
             <Route
-              exact
-              path="/explore"
-              component={() => {
-                return <Redirect to="/explore/dubstep"/>;
-              }
-              }/>
+              exact path="/explore" component={() => {
+              return <Redirect to="/explore/dubstep"/>;
+            }
+            }/>
 
             <Route path="/playlists" render={ (props) => {
               return <Playlists playlists={ this.state.playLists }
@@ -159,16 +142,14 @@ export default class Root extends React.Component {
                                 deletePlaylist={ this.deletePlaylist }
                                 updatePlaylistName={ this.updatePlaylistName }
                                 addSongToPlaylist={ this.addSongToPlaylist }
+                                removeSongFromPlaylist={ this.removeSongFromPlaylist }
                                 {...props}/> // to transfer the history from "Route"
             } }/>
 
 
           </Switch>
-
         </main>
-
         <Player />
-
       </div>
     )
   }

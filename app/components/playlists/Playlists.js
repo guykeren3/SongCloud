@@ -7,7 +7,6 @@ import {Link, NavLink} from "react-router-dom";
 import Playlist from '../playlist/Playlist'
 
 
-
 export default class Playlists extends React.Component {
 
   constructor() {
@@ -62,8 +61,9 @@ export default class Playlists extends React.Component {
             <ul className="my-songs-list-playlist">
               {/*sidebar dynamic playlists*/}
               {this.props.playlists.map((playlist) => {
-              console.info(playlist.name);
-              return <li key={playlist.id}><Link to={playlist.name}>{playlist.name}</Link></li> } ) }
+                console.info(playlist.name);
+                return <li key={playlist.id}><Link to={playlist.name}>{playlist.name}</Link></li>
+              }) }
             </ul>
           </div>
         </aside>
