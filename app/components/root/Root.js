@@ -37,11 +37,17 @@ export default class Root extends React.Component {
   }
 
   deletePlaylist(playlistId) {
+    console.info(this.state, 'this state in delete playlist function');
     const newPlaylist = [...this.state.playLists];
-    newPlaylist.pop();
-    this.setState({
-      playLists: newPlaylist
-    });
+    return newPlaylist.map((playlist, index) => {
+      if (playlist.id === playlistId) {
+        console.info('deleted playlist #', index);
+        newPlaylist.splice(index, 1);
+      }
+      this.setState({
+        playLists: newPlaylist
+      })
+    })
   }
 
   updatePlaylistName(titleName, id) {
@@ -100,7 +106,7 @@ export default class Root extends React.Component {
   addSongToPlaylist(song, playlist) {
     const playlists = this.state.playLists;
     playlists.map(playlistInPlaylistsData => {               // bad practise
-      if(playlistInPlaylistsData.id === playlist.id) {
+      if (playlistInPlaylistsData.id === playlist.id) {
         playlist.songs.push(song);
       }
     });
@@ -111,7 +117,7 @@ export default class Root extends React.Component {
 
     return (
       <div className="root-wrapper">
-        <Topbar history = {this.props.history} />
+        <Topbar history={this.props.history}/>
 
         <main>
           <Switch>

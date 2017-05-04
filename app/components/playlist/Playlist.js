@@ -55,10 +55,12 @@ export default class Playlist extends React.Component {
 
   render() {
 
+    console.info(this.props.playlist, 'my playlist');
     const playlist = this.props.playlist;
     // console.info(playlist);
 
-    const titleName = this.state.isTitleRenamed ? <form onSubmit={ this.handleSubmit }>
+    const titleName = this.state.isTitleRenamed ? <form onSubmit={ this.handleSubmit }
+                                                        onBlur={this.handleSubmit}>
       <input type="text" value={this.state.value} onChange={this.handleChange} autoFocus className="title-input"/>
     </form>
       : this.props.playlist.name;
@@ -75,11 +77,12 @@ export default class Playlist extends React.Component {
           </div>
           {/*<span>8</span>*/}
           <button type="button" onClick={ () => {
-            this.props.deletePlaylist()
+            this.props.deletePlaylist(this.props.playlist.id)
           } }>delete
           </button>
         </div>
-        <ul className={this.props.playlist.songs.length > 0 ? "songs-list-explore" : "song-list-explore-no-flex-fix-last-row"}>
+        <ul
+          className={this.props.playlist.songs.length > 0 ? "songs-list-explore" : "song-list-explore-no-flex-fix-last-row"}>
           {console.info(this.props.playlist)}
           {this.props.playlist.songs.length > 0 ?
             this.props.playlist.songs.map(song => {

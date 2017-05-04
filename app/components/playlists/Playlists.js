@@ -47,6 +47,7 @@ export default class Playlists extends React.Component {
 
 
   render() {
+    console.info(this.props.playlists, 'props in playlists');
     return (
       <div className="playlist-page-container">
         <aside className="playlist-side-bar">
