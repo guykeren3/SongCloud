@@ -129,6 +129,8 @@ export default class Explore extends React.Component {
 
 
   render() {
+    const genre = this.props.match.params.genre;
+
     switch (this.state.loadingState) {
       case 'loading':
         // icon is spinnig loading from icons website
@@ -145,7 +147,7 @@ export default class Explore extends React.Component {
             <GenreChooser />
 
             <div className="title-container">
-              <h3>Genre: Hip-hop rap</h3>
+              <h3>{`Genre: ${genre}`}</h3>
             </div>
             <div className="songs-wrapper">
 
