@@ -40,7 +40,6 @@ export default class Topbar extends React.Component {
           <button><i className="fa fa-search" aria-hidden="true"/></button>
           <input type="text" placeholder="SEARCH" className="search-box"
                  ref={(searchValue) => this.search = searchValue}/>
-          <button type="button"> Logout</button>
         </form>
       </header>
     )
