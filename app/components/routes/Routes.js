@@ -12,8 +12,8 @@ export default function Routes() {
   return (
     <BrowserRouter>
       <Switch>
-        {/*<Route exact path="/signin" component={ Signin }/>*/}
-        {/*<Route exact path="/signup" component={ Signup }/>*/}
+        <Route exact path="/signin" component={ Signin }/>
+        <Route exact path="/signup" component={ Signup }/>
         <Route path="/" component={ Root }/>
       </Switch>
     </BrowserRouter>
