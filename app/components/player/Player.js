@@ -5,9 +5,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 function Player(props) {
-
-  console.info(props.currentTrack);
-
+  
   const song = props.currentTrack;
 
   if (!song) {
