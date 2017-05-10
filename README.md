@@ -1,5 +1,4 @@
 SongCloud - React/Redux Project
-This project is part of the Front-End Development Bootcamp at Create.
 =====================================================================
 
 A Single page application music explorer built using React and the soundcloud API.
@@ -17,3 +16,5 @@ Challenges
 * Songs data from a public API
 * CRUD for playlists data with a server
 * Custom Flux implementation
+
+This project is part of the Front-End Development Bootcamp at Create.
